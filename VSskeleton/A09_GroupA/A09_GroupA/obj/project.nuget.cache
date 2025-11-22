@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "9aIckW1vVP8eiJwNP5ZmGG5K4V2Jvk3k2zDrOYRQGRIRQgp2Ecu8PGSNYiinkXtSM0NMWpukZnopsFn1olY5EQ==",
+  "dgSpecHash": "gMJ+aY0x3eo=",
   "success": true,
-  "projectFilePath": "C:\\Users\\mcamarena\\OneDrive - Dominican University\\SOPHOMORE FALL 2025\\285 Database Design\\A09 Final CPSC285\\VSskeleton\\A09_GroupA\\A09_GroupA\\A09_GroupA.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Mimis\\OneDrive - Dominican University\\SOPHOMORE FALL 2025\\285 Database Design\\285 Assignments\\cpsc285fallA09\\VSskeleton\\A09_GroupA\\A09_GroupA\\A09_GroupA.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Mimis\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.20\\microsoft.windowsdesktop.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\Mimis\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.20\\microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\Mimis\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.20\\microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\Mimis\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.20\\microsoft.netcore.app.host.win-x64.7.0.20.nupkg.sha512"
+  ],
   "logs": []
 }
