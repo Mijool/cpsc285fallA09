@@ -1,0 +1,17 @@
+C:\Users\mcamarena\OneDrive - Dominican University\SOPHOMORE FALL 2025\285 Database Design\A09 Final CPSC285\VSskeleton\A09_GroupA\A09_GroupA\bin\Debug\net7.0-windows\A09_GroupA.exe
+C:\Users\mcamarena\OneDrive - Dominican University\SOPHOMORE FALL 2025\285 Database Design\A09 Final CPSC285\VSskeleton\A09_GroupA\A09_GroupA\bin\Debug\net7.0-windows\A09_GroupA.deps.json
+C:\Users\mcamarena\OneDrive - Dominican University\SOPHOMORE FALL 2025\285 Database Design\A09 Final CPSC285\VSskeleton\A09_GroupA\A09_GroupA\bin\Debug\net7.0-windows\A09_GroupA.runtimeconfig.json
+C:\Users\mcamarena\OneDrive - Dominican University\SOPHOMORE FALL 2025\285 Database Design\A09 Final CPSC285\VSskeleton\A09_GroupA\A09_GroupA\bin\Debug\net7.0-windows\A09_GroupA.dll
+C:\Users\mcamarena\OneDrive - Dominican University\SOPHOMORE FALL 2025\285 Database Design\A09 Final CPSC285\VSskeleton\A09_GroupA\A09_GroupA\bin\Debug\net7.0-windows\A09_GroupA.pdb
+C:\Users\mcamarena\OneDrive - Dominican University\SOPHOMORE FALL 2025\285 Database Design\A09 Final CPSC285\VSskeleton\A09_GroupA\A09_GroupA\obj\Debug\net7.0-windows\A09_GroupA.csproj.AssemblyReference.cache
+C:\Users\mcamarena\OneDrive - Dominican University\SOPHOMORE FALL 2025\285 Database Design\A09 Final CPSC285\VSskeleton\A09_GroupA\A09_GroupA\obj\Debug\net7.0-windows\A09_GroupA.frmMain.resources
+C:\Users\mcamarena\OneDrive - Dominican University\SOPHOMORE FALL 2025\285 Database Design\A09 Final CPSC285\VSskeleton\A09_GroupA\A09_GroupA\obj\Debug\net7.0-windows\A09_GroupA.csproj.GenerateResource.cache
+C:\Users\mcamarena\OneDrive - Dominican University\SOPHOMORE FALL 2025\285 Database Design\A09 Final CPSC285\VSskeleton\A09_GroupA\A09_GroupA\obj\Debug\net7.0-windows\A09_GroupA.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mcamarena\OneDrive - Dominican University\SOPHOMORE FALL 2025\285 Database Design\A09 Final CPSC285\VSskeleton\A09_GroupA\A09_GroupA\obj\Debug\net7.0-windows\A09_GroupA.AssemblyInfoInputs.cache
+C:\Users\mcamarena\OneDrive - Dominican University\SOPHOMORE FALL 2025\285 Database Design\A09 Final CPSC285\VSskeleton\A09_GroupA\A09_GroupA\obj\Debug\net7.0-windows\A09_GroupA.AssemblyInfo.cs
+C:\Users\mcamarena\OneDrive - Dominican University\SOPHOMORE FALL 2025\285 Database Design\A09 Final CPSC285\VSskeleton\A09_GroupA\A09_GroupA\obj\Debug\net7.0-windows\A09_GroupA.csproj.CoreCompileInputs.cache
+C:\Users\mcamarena\OneDrive - Dominican University\SOPHOMORE FALL 2025\285 Database Design\A09 Final CPSC285\VSskeleton\A09_GroupA\A09_GroupA\obj\Debug\net7.0-windows\A09_GroupA.dll
+C:\Users\mcamarena\OneDrive - Dominican University\SOPHOMORE FALL 2025\285 Database Design\A09 Final CPSC285\VSskeleton\A09_GroupA\A09_GroupA\obj\Debug\net7.0-windows\refint\A09_GroupA.dll
+C:\Users\mcamarena\OneDrive - Dominican University\SOPHOMORE FALL 2025\285 Database Design\A09 Final CPSC285\VSskeleton\A09_GroupA\A09_GroupA\obj\Debug\net7.0-windows\A09_GroupA.pdb
+C:\Users\mcamarena\OneDrive - Dominican University\SOPHOMORE FALL 2025\285 Database Design\A09 Final CPSC285\VSskeleton\A09_GroupA\A09_GroupA\obj\Debug\net7.0-windows\A09_GroupA.genruntimeconfig.cache
+C:\Users\mcamarena\OneDrive - Dominican University\SOPHOMORE FALL 2025\285 Database Design\A09 Final CPSC285\VSskeleton\A09_GroupA\A09_GroupA\obj\Debug\net7.0-windows\ref\A09_GroupA.dll
