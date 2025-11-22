@@ -1,0 +1,6 @@
+/*
+download .NET 7.0 because it's what the school computers run 
+https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-7.0.20-windows-x64-installer?cid=getdotnetcore
+
+
+*/
