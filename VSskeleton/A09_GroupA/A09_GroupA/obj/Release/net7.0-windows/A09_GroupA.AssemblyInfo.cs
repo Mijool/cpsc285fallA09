@@ -12,13 +12,9 @@ using System;
 using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("A09_GroupA")]
-[assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< Updated upstream
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-=======
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2b09fb380ab1aee2a9a17c5d40367e1c16aa2a5c")]
->>>>>>> Stashed changes
 [assembly: System.Reflection.AssemblyProductAttribute("A09_GroupA")]
 [assembly: System.Reflection.AssemblyTitleAttribute("A09_GroupA")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
