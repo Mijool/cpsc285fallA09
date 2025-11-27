@@ -1,0 +1,6 @@
+/*
+download .NET 4.7.2 because school computers run on VS2019
+https://dotnet.microsoft.com/en-us/download/dotnet-framework/thank-you/net472-web-installer
+
+
+*/

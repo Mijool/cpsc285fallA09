@@ -1,0 +1,10 @@
+C:\Users\mcamarena\source\repos\cpsc285fallA09\New folder\VS_a09\VS_a09\bin\Debug\VS_a09.exe.config
+C:\Users\mcamarena\source\repos\cpsc285fallA09\New folder\VS_a09\VS_a09\bin\Debug\VS_a09.exe
+C:\Users\mcamarena\source\repos\cpsc285fallA09\New folder\VS_a09\VS_a09\bin\Debug\VS_a09.pdb
+C:\Users\mcamarena\source\repos\cpsc285fallA09\New folder\VS_a09\VS_a09\obj\Debug\VS_a09.csprojAssemblyReference.cache
+C:\Users\mcamarena\source\repos\cpsc285fallA09\New folder\VS_a09\VS_a09\obj\Debug\VS_a09.Properties.Resources.resources
+C:\Users\mcamarena\source\repos\cpsc285fallA09\New folder\VS_a09\VS_a09\obj\Debug\VS_a09.csproj.GenerateResource.cache
+C:\Users\mcamarena\source\repos\cpsc285fallA09\New folder\VS_a09\VS_a09\obj\Debug\VS_a09.csproj.CoreCompileInputs.cache
+C:\Users\mcamarena\source\repos\cpsc285fallA09\New folder\VS_a09\VS_a09\obj\Debug\VS_a09.exe
+C:\Users\mcamarena\source\repos\cpsc285fallA09\New folder\VS_a09\VS_a09\obj\Debug\VS_a09.pdb
+C:\Users\mcamarena\source\repos\cpsc285fallA09\New folder\VS_a09\VS_a09\obj\Debug\VS_a09.frmDrivingSchool.resources
