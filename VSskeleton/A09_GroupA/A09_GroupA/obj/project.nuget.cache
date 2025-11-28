@@ -1,6 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "gMJ+aY0x3eo=",
+=======
+<<<<<<< Updated upstream
+  "dgSpecHash": "9aIckW1vVP8eiJwNP5ZmGG5K4V2Jvk3k2zDrOYRQGRIRQgp2Ecu8PGSNYiinkXtSM0NMWpukZnopsFn1olY5EQ==",
+=======
+  "dgSpecHash": "kugYjoa+2eQ=",
+>>>>>>> Stashed changes
+>>>>>>> main
   "success": true,
   "projectFilePath": "C:\\Users\\Mimis\\OneDrive - Dominican University\\SOPHOMORE FALL 2025\\285 Database Design\\285 Assignments\\cpsc285fallA09\\VSskeleton\\A09_GroupA\\A09_GroupA\\A09_GroupA.csproj",
   "expectedPackageFiles": [
