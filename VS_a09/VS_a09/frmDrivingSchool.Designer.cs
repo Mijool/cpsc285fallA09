@@ -38,6 +38,12 @@
             System.Windows.Forms.Label sTypeLabel;
             System.Windows.Forms.Label phoneLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDrivingSchool));
+            System.Windows.Forms.Label sNameLabel1;
+            System.Windows.Forms.Label sTypeLabel1;
+            System.Windows.Forms.Label phoneLabel1;
+            System.Windows.Forms.Label cNameLabel1;
+            System.Windows.Forms.Label ageLabel1;
+            System.Windows.Forms.Label genderLabel1;
             this.tabControl_DONotEDIT = new System.Windows.Forms.TabControl();
             this.tabClients = new System.Windows.Forms.TabPage();
             this.clientsBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
@@ -103,6 +109,29 @@
             this.rdoMonthClients = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.btnScheduleClass = new System.Windows.Forms.Button();
+            this.btnScheduleClass_1 = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.rdoMonthInstructors = new System.Windows.Forms.RadioButton();
+            this.rdoWeekInstructors = new System.Windows.Forms.RadioButton();
+            this.rdoTodayInstructors = new System.Windows.Forms.RadioButton();
+            this.btnAddClient = new System.Windows.Forms.Button();
+            this.btnAddClientToDBO = new System.Windows.Forms.Button();
+            this.sNameComboBox = new System.Windows.Forms.ComboBox();
+            this.sTypeTextBox1 = new System.Windows.Forms.TextBox();
+            this.phoneTextBox1 = new System.Windows.Forms.TextBox();
+            this.cNameComboBox = new System.Windows.Forms.ComboBox();
+            this.ageTextBox1 = new System.Windows.Forms.TextBox();
+            this.genderTextBox1 = new System.Windows.Forms.TextBox();
+            this.btnInsertScheduledClass = new System.Windows.Forms.Button();
+            this.txtFirstName = new System.Windows.Forms.TextBox();
+            this.txtAge = new System.Windows.Forms.TextBox();
+            this.cboGender = new System.Windows.Forms.ComboBox();
+            this.txtLastName = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             clientIDLabel = new System.Windows.Forms.Label();
             cNameLabel = new System.Windows.Forms.Label();
             ageLabel = new System.Windows.Forms.Label();
@@ -111,6 +140,12 @@
             sNameLabel = new System.Windows.Forms.Label();
             sTypeLabel = new System.Windows.Forms.Label();
             phoneLabel = new System.Windows.Forms.Label();
+            sNameLabel1 = new System.Windows.Forms.Label();
+            sTypeLabel1 = new System.Windows.Forms.Label();
+            phoneLabel1 = new System.Windows.Forms.Label();
+            cNameLabel1 = new System.Windows.Forms.Label();
+            ageLabel1 = new System.Windows.Forms.Label();
+            genderLabel1 = new System.Windows.Forms.Label();
             this.tabControl_DONotEDIT.SuspendLayout();
             this.tabClients.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clientsBindingNavigator)).BeginInit();
@@ -125,7 +160,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.classesDataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.classesBindingSource1)).BeginInit();
+            this.tabAddClients.SuspendLayout();
+            this.tabScheduleClass.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // clientIDLabel
@@ -215,6 +253,7 @@
             // tabClients
             // 
             this.tabClients.AutoScroll = true;
+            this.tabClients.Controls.Add(this.btnAddClient);
             this.tabClients.Controls.Add(this.btnScheduleClass);
             this.tabClients.Controls.Add(this.groupBox1);
             this.tabClients.Controls.Add(this.clientsBindingNavigator);
@@ -469,6 +508,8 @@
             // 
             // tabInstructors
             // 
+            this.tabInstructors.Controls.Add(this.btnScheduleClass_1);
+            this.tabInstructors.Controls.Add(this.groupBox2);
             this.tabInstructors.Controls.Add(this.bindingNavigator1);
             this.tabInstructors.Controls.Add(this.classesDataGridView1);
             this.tabInstructors.Controls.Add(staffIDLabel);
@@ -706,6 +747,15 @@
             // 
             // tabAddClients
             // 
+            this.tabAddClients.Controls.Add(this.label6);
+            this.tabAddClients.Controls.Add(this.label5);
+            this.tabAddClients.Controls.Add(this.label4);
+            this.tabAddClients.Controls.Add(this.label3);
+            this.tabAddClients.Controls.Add(this.txtLastName);
+            this.tabAddClients.Controls.Add(this.cboGender);
+            this.tabAddClients.Controls.Add(this.txtAge);
+            this.tabAddClients.Controls.Add(this.txtFirstName);
+            this.tabAddClients.Controls.Add(this.btnAddClientToDBO);
             this.tabAddClients.Location = new System.Drawing.Point(4, 25);
             this.tabAddClients.Name = "tabAddClients";
             this.tabAddClients.Padding = new System.Windows.Forms.Padding(3);
@@ -716,6 +766,19 @@
             // 
             // tabScheduleClass
             // 
+            this.tabScheduleClass.Controls.Add(this.btnInsertScheduledClass);
+            this.tabScheduleClass.Controls.Add(cNameLabel1);
+            this.tabScheduleClass.Controls.Add(this.cNameComboBox);
+            this.tabScheduleClass.Controls.Add(ageLabel1);
+            this.tabScheduleClass.Controls.Add(this.ageTextBox1);
+            this.tabScheduleClass.Controls.Add(genderLabel1);
+            this.tabScheduleClass.Controls.Add(this.genderTextBox1);
+            this.tabScheduleClass.Controls.Add(sNameLabel1);
+            this.tabScheduleClass.Controls.Add(this.sNameComboBox);
+            this.tabScheduleClass.Controls.Add(sTypeLabel1);
+            this.tabScheduleClass.Controls.Add(this.sTypeTextBox1);
+            this.tabScheduleClass.Controls.Add(phoneLabel1);
+            this.tabScheduleClass.Controls.Add(this.phoneTextBox1);
             this.tabScheduleClass.Location = new System.Drawing.Point(4, 25);
             this.tabScheduleClass.Name = "tabScheduleClass";
             this.tabScheduleClass.Padding = new System.Windows.Forms.Padding(3);
@@ -764,7 +827,6 @@
             this.rdoTodayClients.Name = "rdoTodayClients";
             this.rdoTodayClients.Size = new System.Drawing.Size(68, 20);
             this.rdoTodayClients.TabIndex = 0;
-            this.rdoTodayClients.TabStop = true;
             this.rdoTodayClients.Text = "Today";
             this.rdoTodayClients.UseVisualStyleBackColor = true;
             this.rdoTodayClients.CheckedChanged += new System.EventHandler(this.rdoTodayClients_CheckedChanged);
@@ -776,7 +838,6 @@
             this.rdoWeekClients.Name = "rdoWeekClients";
             this.rdoWeekClients.Size = new System.Drawing.Size(93, 20);
             this.rdoWeekClients.TabIndex = 1;
-            this.rdoWeekClients.TabStop = true;
             this.rdoWeekClients.Text = "This Week";
             this.rdoWeekClients.UseVisualStyleBackColor = true;
             this.rdoWeekClients.CheckedChanged += new System.EventHandler(this.rdoWeekClients_CheckedChanged);
@@ -784,6 +845,7 @@
             // rdoMonthClients
             // 
             this.rdoMonthClients.AutoSize = true;
+            this.rdoMonthClients.Checked = true;
             this.rdoMonthClients.Location = new System.Drawing.Point(81, 123);
             this.rdoMonthClients.Name = "rdoMonthClients";
             this.rdoMonthClients.Size = new System.Drawing.Size(93, 20);
@@ -804,13 +866,283 @@
             // 
             // btnScheduleClass
             // 
-            this.btnScheduleClass.Location = new System.Drawing.Point(485, 99);
+            this.btnScheduleClass.Location = new System.Drawing.Point(486, 125);
             this.btnScheduleClass.Name = "btnScheduleClass";
             this.btnScheduleClass.Size = new System.Drawing.Size(111, 39);
             this.btnScheduleClass.TabIndex = 10;
             this.btnScheduleClass.Text = "Schedule Class";
             this.btnScheduleClass.UseVisualStyleBackColor = true;
             this.btnScheduleClass.Click += new System.EventHandler(this.btnScheduleClass_Click);
+            // 
+            // btnScheduleClass_1
+            // 
+            this.btnScheduleClass_1.Location = new System.Drawing.Point(542, 105);
+            this.btnScheduleClass_1.Name = "btnScheduleClass_1";
+            this.btnScheduleClass_1.Size = new System.Drawing.Size(111, 39);
+            this.btnScheduleClass_1.TabIndex = 12;
+            this.btnScheduleClass_1.Text = "Schedule Class";
+            this.btnScheduleClass_1.UseVisualStyleBackColor = true;
+            this.btnScheduleClass_1.Click += new System.EventHandler(this.btnScheduleClass_1_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.rdoMonthInstructors);
+            this.groupBox2.Controls.Add(this.rdoWeekInstructors);
+            this.groupBox2.Controls.Add(this.rdoTodayInstructors);
+            this.groupBox2.Location = new System.Drawing.Point(680, 39);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(290, 160);
+            this.groupBox2.TabIndex = 11;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "groupBox2";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(21, 22);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(239, 16);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "View Instructors\' classes scheduled for:";
+            // 
+            // rdoMonthInstructors
+            // 
+            this.rdoMonthInstructors.AutoSize = true;
+            this.rdoMonthInstructors.Checked = true;
+            this.rdoMonthInstructors.Location = new System.Drawing.Point(81, 123);
+            this.rdoMonthInstructors.Name = "rdoMonthInstructors";
+            this.rdoMonthInstructors.Size = new System.Drawing.Size(93, 20);
+            this.rdoMonthInstructors.TabIndex = 2;
+            this.rdoMonthInstructors.TabStop = true;
+            this.rdoMonthInstructors.Text = "This Month";
+            this.rdoMonthInstructors.UseVisualStyleBackColor = true;
+            this.rdoMonthInstructors.CheckedChanged += new System.EventHandler(this.rdoMonthInstructors_CheckedChanged);
+            // 
+            // rdoWeekInstructors
+            // 
+            this.rdoWeekInstructors.AutoSize = true;
+            this.rdoWeekInstructors.Location = new System.Drawing.Point(81, 85);
+            this.rdoWeekInstructors.Name = "rdoWeekInstructors";
+            this.rdoWeekInstructors.Size = new System.Drawing.Size(93, 20);
+            this.rdoWeekInstructors.TabIndex = 1;
+            this.rdoWeekInstructors.Text = "This Week";
+            this.rdoWeekInstructors.UseVisualStyleBackColor = true;
+            this.rdoWeekInstructors.CheckedChanged += new System.EventHandler(this.rdoWeekInstructors_CheckedChanged);
+            // 
+            // rdoTodayInstructors
+            // 
+            this.rdoTodayInstructors.AutoSize = true;
+            this.rdoTodayInstructors.Location = new System.Drawing.Point(81, 47);
+            this.rdoTodayInstructors.Name = "rdoTodayInstructors";
+            this.rdoTodayInstructors.Size = new System.Drawing.Size(68, 20);
+            this.rdoTodayInstructors.TabIndex = 0;
+            this.rdoTodayInstructors.Text = "Today";
+            this.rdoTodayInstructors.UseVisualStyleBackColor = true;
+            this.rdoTodayInstructors.CheckedChanged += new System.EventHandler(this.rdoTodayInstructors_CheckedChanged);
+            // 
+            // btnAddClient
+            // 
+            this.btnAddClient.Location = new System.Drawing.Point(486, 57);
+            this.btnAddClient.Name = "btnAddClient";
+            this.btnAddClient.Size = new System.Drawing.Size(111, 43);
+            this.btnAddClient.TabIndex = 11;
+            this.btnAddClient.Text = "Add a new Client";
+            this.btnAddClient.UseVisualStyleBackColor = true;
+            this.btnAddClient.Click += new System.EventHandler(this.btnAddClient_Click);
+            // 
+            // btnAddClientToDBO
+            // 
+            this.btnAddClientToDBO.Location = new System.Drawing.Point(586, 213);
+            this.btnAddClientToDBO.Name = "btnAddClientToDBO";
+            this.btnAddClientToDBO.Size = new System.Drawing.Size(114, 46);
+            this.btnAddClientToDBO.TabIndex = 0;
+            this.btnAddClientToDBO.Text = "Add Client";
+            this.btnAddClientToDBO.UseVisualStyleBackColor = true;
+            this.btnAddClientToDBO.Click += new System.EventHandler(this.btnAddClientToDBO_Click);
+            // 
+            // sNameLabel1
+            // 
+            sNameLabel1.AutoSize = true;
+            sNameLabel1.Location = new System.Drawing.Point(151, 162);
+            sNameLabel1.Name = "sNameLabel1";
+            sNameLabel1.Size = new System.Drawing.Size(56, 16);
+            sNameLabel1.TabIndex = 2;
+            sNameLabel1.Text = "SName:";
+            // 
+            // sNameComboBox
+            // 
+            this.sNameComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.staffBindingSource, "SName", true));
+            this.sNameComboBox.FormattingEnabled = true;
+            this.sNameComboBox.Location = new System.Drawing.Point(213, 159);
+            this.sNameComboBox.Name = "sNameComboBox";
+            this.sNameComboBox.Size = new System.Drawing.Size(121, 24);
+            this.sNameComboBox.TabIndex = 3;
+            // 
+            // sTypeLabel1
+            // 
+            sTypeLabel1.AutoSize = true;
+            sTypeLabel1.Location = new System.Drawing.Point(151, 192);
+            sTypeLabel1.Name = "sTypeLabel1";
+            sTypeLabel1.Size = new System.Drawing.Size(51, 16);
+            sTypeLabel1.TabIndex = 4;
+            sTypeLabel1.Text = "SType:";
+            // 
+            // sTypeTextBox1
+            // 
+            this.sTypeTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.staffBindingSource, "SType", true));
+            this.sTypeTextBox1.Location = new System.Drawing.Point(213, 189);
+            this.sTypeTextBox1.Name = "sTypeTextBox1";
+            this.sTypeTextBox1.Size = new System.Drawing.Size(121, 22);
+            this.sTypeTextBox1.TabIndex = 5;
+            // 
+            // phoneLabel1
+            // 
+            phoneLabel1.AutoSize = true;
+            phoneLabel1.Location = new System.Drawing.Point(151, 220);
+            phoneLabel1.Name = "phoneLabel1";
+            phoneLabel1.Size = new System.Drawing.Size(49, 16);
+            phoneLabel1.TabIndex = 6;
+            phoneLabel1.Text = "Phone:";
+            // 
+            // phoneTextBox1
+            // 
+            this.phoneTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.staffBindingSource, "Phone", true));
+            this.phoneTextBox1.Location = new System.Drawing.Point(213, 217);
+            this.phoneTextBox1.Name = "phoneTextBox1";
+            this.phoneTextBox1.Size = new System.Drawing.Size(121, 22);
+            this.phoneTextBox1.TabIndex = 7;
+            // 
+            // cNameLabel1
+            // 
+            cNameLabel1.AutoSize = true;
+            cNameLabel1.Location = new System.Drawing.Point(617, 165);
+            cNameLabel1.Name = "cNameLabel1";
+            cNameLabel1.Size = new System.Drawing.Size(56, 16);
+            cNameLabel1.TabIndex = 10;
+            cNameLabel1.Text = "CName:";
+            // 
+            // cNameComboBox
+            // 
+            this.cNameComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientsBindingSource, "CName", true));
+            this.cNameComboBox.FormattingEnabled = true;
+            this.cNameComboBox.Location = new System.Drawing.Point(682, 162);
+            this.cNameComboBox.Name = "cNameComboBox";
+            this.cNameComboBox.Size = new System.Drawing.Size(121, 24);
+            this.cNameComboBox.TabIndex = 11;
+            // 
+            // ageLabel1
+            // 
+            ageLabel1.AutoSize = true;
+            ageLabel1.Location = new System.Drawing.Point(617, 195);
+            ageLabel1.Name = "ageLabel1";
+            ageLabel1.Size = new System.Drawing.Size(35, 16);
+            ageLabel1.TabIndex = 12;
+            ageLabel1.Text = "Age:";
+            // 
+            // ageTextBox1
+            // 
+            this.ageTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientsBindingSource, "Age", true));
+            this.ageTextBox1.Location = new System.Drawing.Point(682, 192);
+            this.ageTextBox1.Name = "ageTextBox1";
+            this.ageTextBox1.Size = new System.Drawing.Size(121, 22);
+            this.ageTextBox1.TabIndex = 13;
+            // 
+            // genderLabel1
+            // 
+            genderLabel1.AutoSize = true;
+            genderLabel1.Location = new System.Drawing.Point(617, 223);
+            genderLabel1.Name = "genderLabel1";
+            genderLabel1.Size = new System.Drawing.Size(55, 16);
+            genderLabel1.TabIndex = 14;
+            genderLabel1.Text = "Gender:";
+            // 
+            // genderTextBox1
+            // 
+            this.genderTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientsBindingSource, "Gender", true));
+            this.genderTextBox1.Location = new System.Drawing.Point(682, 220);
+            this.genderTextBox1.Name = "genderTextBox1";
+            this.genderTextBox1.Size = new System.Drawing.Size(121, 22);
+            this.genderTextBox1.TabIndex = 15;
+            // 
+            // btnInsertScheduledClass
+            // 
+            this.btnInsertScheduledClass.Location = new System.Drawing.Point(415, 156);
+            this.btnInsertScheduledClass.Name = "btnInsertScheduledClass";
+            this.btnInsertScheduledClass.Size = new System.Drawing.Size(139, 80);
+            this.btnInsertScheduledClass.TabIndex = 16;
+            this.btnInsertScheduledClass.Text = "Schedule this class";
+            this.btnInsertScheduledClass.UseVisualStyleBackColor = true;
+            this.btnInsertScheduledClass.Click += new System.EventHandler(this.btnInsertScheduledClass_Click);
+            // 
+            // txtFirstName
+            // 
+            this.txtFirstName.Location = new System.Drawing.Point(345, 167);
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.Size = new System.Drawing.Size(151, 22);
+            this.txtFirstName.TabIndex = 1;
+            // 
+            // txtAge
+            // 
+            this.txtAge.Location = new System.Drawing.Point(345, 247);
+            this.txtAge.Name = "txtAge";
+            this.txtAge.Size = new System.Drawing.Size(59, 22);
+            this.txtAge.TabIndex = 2;
+            // 
+            // cboGender
+            // 
+            this.cboGender.FormattingEnabled = true;
+            this.cboGender.Items.AddRange(new object[] {
+            "Male",
+            "Female",
+            "Other"});
+            this.cboGender.Location = new System.Drawing.Point(345, 287);
+            this.cboGender.Name = "cboGender";
+            this.cboGender.Size = new System.Drawing.Size(121, 24);
+            this.cboGender.TabIndex = 3;
+            // 
+            // txtLastName
+            // 
+            this.txtLastName.Location = new System.Drawing.Point(345, 207);
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.Size = new System.Drawing.Size(151, 22);
+            this.txtLastName.TabIndex = 4;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(234, 173);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(72, 16);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "First Name";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(234, 213);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(72, 16);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Last Name";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(234, 253);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(32, 16);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Age";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(234, 295);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(52, 16);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Gender";
             // 
             // frmDrivingSchool
             // 
@@ -839,8 +1171,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.classesDataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.classesBindingSource1)).EndInit();
+            this.tabAddClients.ResumeLayout(false);
+            this.tabAddClients.PerformLayout();
+            this.tabScheduleClass.ResumeLayout(false);
+            this.tabScheduleClass.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -912,6 +1250,29 @@
         private System.Windows.Forms.RadioButton rdoTodayClients;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnScheduleClass;
+        private System.Windows.Forms.Button btnScheduleClass_1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RadioButton rdoMonthInstructors;
+        private System.Windows.Forms.RadioButton rdoWeekInstructors;
+        private System.Windows.Forms.RadioButton rdoTodayInstructors;
+        private System.Windows.Forms.Button btnAddClient;
+        private System.Windows.Forms.Button btnAddClientToDBO;
+        private System.Windows.Forms.Button btnInsertScheduledClass;
+        private System.Windows.Forms.ComboBox cNameComboBox;
+        private System.Windows.Forms.TextBox ageTextBox1;
+        private System.Windows.Forms.TextBox genderTextBox1;
+        private System.Windows.Forms.ComboBox sNameComboBox;
+        private System.Windows.Forms.TextBox sTypeTextBox1;
+        private System.Windows.Forms.TextBox phoneTextBox1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtLastName;
+        private System.Windows.Forms.ComboBox cboGender;
+        private System.Windows.Forms.TextBox txtAge;
+        private System.Windows.Forms.TextBox txtFirstName;
     }
 }
 
