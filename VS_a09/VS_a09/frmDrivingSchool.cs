@@ -44,5 +44,30 @@ namespace VS_a09
 
             this.classesTableAdapter.Fill(this.f25_285ADataSet.Classes);
         }
+
+        // Clients Tab
+        private void rdoTodayClients_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rdoWeekClients_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rdoMonthClients_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnScheduleClass_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //Instructors Tab
+
+
     }
 }
