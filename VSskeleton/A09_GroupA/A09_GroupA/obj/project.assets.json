@@ -8,19 +8,24 @@
     "net7.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\mcamarena\\.nuget\\packages\\": {}
+    "C:\\Users\\Mimis\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mcamarena\\OneDrive - Dominican University\\SOPHOMORE FALL 2025\\285 Database Design\\A09 Final CPSC285\\VSskeleton\\A09_GroupA\\A09_GroupA\\A09_GroupA.csproj",
+      "projectUniqueName": "C:\\Users\\Mimis\\OneDrive - Dominican University\\SOPHOMORE FALL 2025\\285 Database Design\\285 Assignments\\cpsc285fallA09\\VSskeleton\\A09_GroupA\\A09_GroupA\\A09_GroupA.csproj",
       "projectName": "A09_GroupA",
-      "projectPath": "C:\\Users\\mcamarena\\OneDrive - Dominican University\\SOPHOMORE FALL 2025\\285 Database Design\\A09 Final CPSC285\\VSskeleton\\A09_GroupA\\A09_GroupA\\A09_GroupA.csproj",
-      "packagesPath": "C:\\Users\\mcamarena\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mcamarena\\OneDrive - Dominican University\\SOPHOMORE FALL 2025\\285 Database Design\\A09 Final CPSC285\\VSskeleton\\A09_GroupA\\A09_GroupA\\obj\\",
+      "projectPath": "C:\\Users\\Mimis\\OneDrive - Dominican University\\SOPHOMORE FALL 2025\\285 Database Design\\285 Assignments\\cpsc285fallA09\\VSskeleton\\A09_GroupA\\A09_GroupA\\A09_GroupA.csproj",
+      "packagesPath": "C:\\Users\\Mimis\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Mimis\\OneDrive - Dominican University\\SOPHOMORE FALL 2025\\285 Database Design\\285 Assignments\\cpsc285fallA09\\VSskeleton\\A09_GroupA\\A09_GroupA\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\mcamarena\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Mimis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -40,7 +45,13 @@
         "warnAsError": [
           "NU1605"
         ]
-      }
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "10.0.100"
     },
     "frameworks": {
       "net7.0-windows7.0": {
@@ -56,6 +67,24 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[7.0.20, 7.0.20]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[7.0.20, 7.0.20]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[7.0.20, 7.0.20]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[7.0.20, 7.0.20]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
@@ -64,11 +93,15 @@
             "privateAssets": "none"
           }
         },
+<<<<<<< HEAD
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100-rc.1.25451.107\\RuntimeIdentifierGraph.json"
+=======
 <<<<<<< Updated upstream
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
 =======
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100\\RuntimeIdentifierGraph.json"
 >>>>>>> Stashed changes
+>>>>>>> main
       }
     }
   }

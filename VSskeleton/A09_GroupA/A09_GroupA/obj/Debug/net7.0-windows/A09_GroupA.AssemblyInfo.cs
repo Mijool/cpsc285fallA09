@@ -14,11 +14,15 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("A09_GroupA")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0cf3e21e8a873bccc14d6c64a117b97f0e6ae801")]
+=======
 <<<<<<< Updated upstream
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 =======
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2b09fb380ab1aee2a9a17c5d40367e1c16aa2a5c")]
 >>>>>>> Stashed changes
+>>>>>>> main
 [assembly: System.Reflection.AssemblyProductAttribute("A09_GroupA")]
 [assembly: System.Reflection.AssemblyTitleAttribute("A09_GroupA")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
