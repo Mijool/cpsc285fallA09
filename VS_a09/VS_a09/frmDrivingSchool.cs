@@ -35,14 +35,13 @@ namespace VS_a09
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'f25_285ADataSet.Staff' table. You can move, or remove it, as needed.
             this.staffTableAdapter.Fill(this.f25_285ADataSet.Staff);
-            // TODO: This line of code loads data into the 'f25_285ADataSet.Classes' table. You can move, or remove it, as needed.
-            
-            // TODO: This line of code loads data into the 'f25_285ADataSet.Clients' table. You can move, or remove it, as needed.
             this.clientsTableAdapter.Fill(this.f25_285ADataSet.Clients);
-
             this.classesTableAdapter.Fill(this.f25_285ADataSet.Classes);
+
+
+
+
         }
 
         // Clients Tab

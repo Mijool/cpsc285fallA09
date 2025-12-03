@@ -8,3 +8,14 @@ C:\Users\mcamarena\source\repos\cpsc285fallA09\New folder\VS_a09\VS_a09\obj\Debu
 C:\Users\mcamarena\source\repos\cpsc285fallA09\New folder\VS_a09\VS_a09\obj\Debug\VS_a09.exe
 C:\Users\mcamarena\source\repos\cpsc285fallA09\New folder\VS_a09\VS_a09\obj\Debug\VS_a09.pdb
 C:\Users\mcamarena\source\repos\cpsc285fallA09\New folder\VS_a09\VS_a09\obj\Debug\VS_a09.frmDrivingSchool.resources
+C:\Users\mcamarena\Source\Repos\Mijool\cpsc285fallA09\VS_a09\VS_a09\bin\Debug\VS_a09.exe.config
+C:\Users\mcamarena\Source\Repos\Mijool\cpsc285fallA09\VS_a09\VS_a09\bin\Debug\VS_a09.exe
+C:\Users\mcamarena\Source\Repos\Mijool\cpsc285fallA09\VS_a09\VS_a09\bin\Debug\VS_a09.pdb
+C:\Users\mcamarena\Source\Repos\Mijool\cpsc285fallA09\VS_a09\VS_a09\obj\Debug\VS_a09.csproj.AssemblyReference.cache
+C:\Users\mcamarena\Source\Repos\Mijool\cpsc285fallA09\VS_a09\VS_a09\obj\Debug\VS_a09.csproj.SuggestedBindingRedirects.cache
+C:\Users\mcamarena\Source\Repos\Mijool\cpsc285fallA09\VS_a09\VS_a09\obj\Debug\VS_a09.frmDrivingSchool.resources
+C:\Users\mcamarena\Source\Repos\Mijool\cpsc285fallA09\VS_a09\VS_a09\obj\Debug\VS_a09.Properties.Resources.resources
+C:\Users\mcamarena\Source\Repos\Mijool\cpsc285fallA09\VS_a09\VS_a09\obj\Debug\VS_a09.csproj.GenerateResource.cache
+C:\Users\mcamarena\Source\Repos\Mijool\cpsc285fallA09\VS_a09\VS_a09\obj\Debug\VS_a09.csproj.CoreCompileInputs.cache
+C:\Users\mcamarena\Source\Repos\Mijool\cpsc285fallA09\VS_a09\VS_a09\obj\Debug\VS_a09.exe
+C:\Users\mcamarena\Source\Repos\Mijool\cpsc285fallA09\VS_a09\VS_a09\obj\Debug\VS_a09.pdb
