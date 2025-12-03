@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+
 
 namespace VS_a09
 {
@@ -37,12 +39,18 @@ namespace VS_a09
         {
             this.staffTableAdapter.Fill(this.f25_285ADataSet.Staff);
             this.clientsTableAdapter.Fill(this.f25_285ADataSet.Clients);
+
             this.classesTableAdapter.Fill(this.f25_285ADataSet.Classes);
 
-
-
-
         }
+
+        private SqlConnection cnnF25_285;
+        private SqlCommand cmdF25_285;
+        private SqlDataReader rdrF25_285;
+
+        //change this in App.config as well
+        //private String connectionStr = @"Data Source=cissql;Initial Catalog=F25_285A;Integrated Security=True"; //School DBO
+        private String connectionStr = @"Data Source=MACK\MCSQL;Initial Catalog=F25_285A;Integrated Security=True"; //Miguel's DBO
 
 
         /*
@@ -131,9 +139,9 @@ FROM (db_owner.Classes inner join db_owner.Clients on db_owner.Clients.ClientID 
 
 
 
-        //Add client
+        //Add client - Taras
 
-         private void btnAddClientToDBO_Click(object sender, EventArgs e)
+         private void btnAddClientToDBO_Click(object sender, EventArgs e) 
          {
             int id; //find a way to get the max ID from the table, then +1 it
             String Name = txtLastName.Text + ',' + txtFirstName.Text;
@@ -156,7 +164,7 @@ FROM (db_owner.Classes inner join db_owner.Clients on db_owner.Clients.ClientID 
 
         
 
-        //Schedule a new Class - I
+        //Schedule a new Class - Isai
         private void btnInsertScheduledClass_Click(object sender, EventArgs e)
         {
             try
