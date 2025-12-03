@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="F25_285ADataSet.cs">
+      <DependentUpon>F25_285ADataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="F25_285ADataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -44,21 +44,41 @@ namespace VS_a09
 
         }
 
+
+        /*
+         * 
+         * 
+         * Make sure schedule class tab populates comboboxes properly
+         * 
+         * 
+         * hard code datagrid to load this query
+         * 
+         * 
+         * 
+         SELECT ClassID, CDate, CTime, Classes.ClientID, Clients.CName, Staff.SName,Classes.StaffID 
+FROM (db_owner.Classes inner join db_owner.Clients on db_owner.Clients.ClientID = db_owner.Classes.ClientID) inner join db_owner.Staff on db_owner.Staff.StaffID = db_owner.Classes.StaffID
+         
+         */
+
         // Clients Tab
-        private void rdoTodayClients_CheckedChanged(object sender, EventArgs e)
-        {
-            changeScheduleTimeSpan("today");
-        }
 
-        private void rdoWeekClients_CheckedChanged(object sender, EventArgs e)
-        {
-            changeScheduleTimeSpan("week");
-        }
 
-        private void rdoMonthClients_CheckedChanged(object sender, EventArgs e)
-        {
-            changeScheduleTimeSpan("month");
-        }
+
+        //clients tab shouldnt include this
+        //private void rdoTodayClients_CheckedChanged(object sender, EventArgs e) 
+        //{
+        //    changeScheduleTimeSpan("today");
+        //}
+
+        //private void rdoWeekClients_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    changeScheduleTimeSpan("week");
+        //}
+
+        //private void rdoMonthClients_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    changeScheduleTimeSpan("month");
+        //}
 
         private void btnScheduleClass_Click(object sender, EventArgs e) //changes tab
         {
@@ -136,7 +156,7 @@ namespace VS_a09
 
         
 
-        //Schedule a new Class
+        //Schedule a new Class - I
         private void btnInsertScheduledClass_Click(object sender, EventArgs e)
         {
             try
@@ -153,5 +173,17 @@ namespace VS_a09
             }
         }
 
+        private void fillbyIncludeNamesToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.classesTableAdapter.FillbyIncludeNames(this.f25_285ADataSet.Classes);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
     }
 }
