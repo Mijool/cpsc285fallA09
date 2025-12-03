@@ -134,6 +134,7 @@
             this.staffTableAdapter = new VS_a09.F25_285ADataSetTableAdapters.StaffTableAdapter();
             this.fillbyIncludeNamesToolStrip = new System.Windows.Forms.ToolStrip();
             this.fillbyIncludeNamesToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.fKClassesClientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             clientIDLabel = new System.Windows.Forms.Label();
             ageLabel = new System.Windows.Forms.Label();
             genderLabel = new System.Windows.Forms.Label();
@@ -167,6 +168,7 @@
             this.tabAddClients.SuspendLayout();
             this.tabScheduleClass.SuspendLayout();
             this.fillbyIncludeNamesToolStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fKClassesClientBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // clientIDLabel
@@ -348,11 +350,14 @@
             // cNameComboBox1
             // 
             this.cNameComboBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientsBindingSource, "CName", true));
+            this.cNameComboBox1.DataSource = this.clientsBindingSource;
+            this.cNameComboBox1.DisplayMember = "CName";
             this.cNameComboBox1.FormattingEnabled = true;
             this.cNameComboBox1.Location = new System.Drawing.Point(83, 73);
             this.cNameComboBox1.Name = "cNameComboBox1";
             this.cNameComboBox1.Size = new System.Drawing.Size(121, 21);
             this.cNameComboBox1.TabIndex = 12;
+            this.cNameComboBox1.ValueMember = "CName";
             // 
             // clientsBindingSource
             // 
@@ -423,7 +428,6 @@
             this.rdoMonthClients.TabStop = true;
             this.rdoMonthClients.Text = "This Month";
             this.rdoMonthClients.UseVisualStyleBackColor = true;
-            //this.rdoMonthClients.CheckedChanged += new System.EventHandler(this.rdoMonthClients_CheckedChanged);
             // 
             // rdoWeekClients
             // 
@@ -435,7 +439,6 @@
             this.rdoWeekClients.TabIndex = 1;
             this.rdoWeekClients.Text = "This Week";
             this.rdoWeekClients.UseVisualStyleBackColor = true;
-            //this.rdoWeekClients.CheckedChanged += new System.EventHandler(this.rdoWeekClients_CheckedChanged);
             // 
             // rdoTodayClients
             // 
@@ -447,7 +450,6 @@
             this.rdoTodayClients.TabIndex = 0;
             this.rdoTodayClients.Text = "Today";
             this.rdoTodayClients.UseVisualStyleBackColor = true;
-            //this.rdoTodayClients.CheckedChanged += new System.EventHandler(this.rdoTodayClients_CheckedChanged);
             // 
             // clientsBindingNavigator
             // 
@@ -697,11 +699,14 @@
             // sNameComboBox1
             // 
             this.sNameComboBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.staffBindingSource, "SName", true));
+            this.sNameComboBox1.DataSource = this.staffBindingSource;
+            this.sNameComboBox1.DisplayMember = "SName";
             this.sNameComboBox1.FormattingEnabled = true;
             this.sNameComboBox1.Location = new System.Drawing.Point(82, 80);
             this.sNameComboBox1.Name = "sNameComboBox1";
             this.sNameComboBox1.Size = new System.Drawing.Size(121, 21);
             this.sNameComboBox1.TabIndex = 13;
+            this.sNameComboBox1.ValueMember = "SName";
             // 
             // staffBindingSource
             // 
@@ -1139,12 +1144,15 @@
             // cNameComboBox
             // 
             this.cNameComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientsBindingSource, "CName", true));
+            this.cNameComboBox.DataSource = this.clientsBindingSource;
+            this.cNameComboBox.DisplayMember = "CName";
             this.cNameComboBox.FormattingEnabled = true;
             this.cNameComboBox.Location = new System.Drawing.Point(512, 132);
             this.cNameComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.cNameComboBox.Name = "cNameComboBox";
             this.cNameComboBox.Size = new System.Drawing.Size(92, 21);
             this.cNameComboBox.TabIndex = 11;
+            this.cNameComboBox.ValueMember = "ClientID";
             // 
             // ageTextBox1
             // 
@@ -1167,12 +1175,15 @@
             // sNameComboBox
             // 
             this.sNameComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.staffBindingSource, "SName", true));
+            this.sNameComboBox.DataSource = this.staffBindingSource;
+            this.sNameComboBox.DisplayMember = "SName";
             this.sNameComboBox.FormattingEnabled = true;
             this.sNameComboBox.Location = new System.Drawing.Point(160, 129);
             this.sNameComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.sNameComboBox.Name = "sNameComboBox";
             this.sNameComboBox.Size = new System.Drawing.Size(92, 21);
             this.sNameComboBox.TabIndex = 3;
+            this.sNameComboBox.ValueMember = "SName";
             // 
             // sTypeTextBox1
             // 
@@ -1231,6 +1242,11 @@
             this.fillbyIncludeNamesToolStripButton.Text = "FillbyIncludeNames";
             this.fillbyIncludeNamesToolStripButton.Click += new System.EventHandler(this.fillbyIncludeNamesToolStripButton_Click);
             // 
+            // fKClassesClientBindingSource
+            // 
+            this.fKClassesClientBindingSource.DataMember = "FK_Classes_Client";
+            this.fKClassesClientBindingSource.DataSource = this.clientsBindingSource;
+            // 
             // frmDrivingSchool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1270,6 +1286,7 @@
             this.tabScheduleClass.PerformLayout();
             this.fillbyIncludeNamesToolStrip.ResumeLayout(false);
             this.fillbyIncludeNamesToolStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fKClassesClientBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1367,6 +1384,7 @@
         private System.Windows.Forms.ComboBox cNameComboBox1;
         private System.Windows.Forms.ToolStrip fillbyIncludeNamesToolStrip;
         private System.Windows.Forms.ToolStripButton fillbyIncludeNamesToolStripButton;
+        private System.Windows.Forms.BindingSource fKClassesClientBindingSource;
     }
 }
 
