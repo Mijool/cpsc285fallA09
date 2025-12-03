@@ -64,7 +64,7 @@ FROM (db_owner.Classes inner join db_owner.Clients on db_owner.Clients.ClientID 
 
 
 
-        //clients tab shouldnt include this
+        //clients tab shouldnt include this buttons will not work (check designer cs file)
         //private void rdoTodayClients_CheckedChanged(object sender, EventArgs e) 
         //{
         //    changeScheduleTimeSpan("today");
