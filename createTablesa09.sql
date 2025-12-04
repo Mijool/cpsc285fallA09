@@ -1,5 +1,83 @@
-/*
-* SQL Script to create and insert data into school's dbo
-*
-*
-*/
+
+--RUN THIS BY ITSELF FIRST
+CREATE DATABASE [F25_285A]
+
+--THEN THIS BY ITSELF
+USE [F25_285A]
+GO
+
+--NOW YOU CAN RUN THIS TO CREATE ALL THE TABLES :)
+/****** Object:  Table [db_owner].[Clients]    Script Date: 12/3/2025 11:00:29 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [db_owner].[Clients](
+	[ClientID] [int] IDENTITY(1,1) NOT NULL,
+	[CName] [varchar](80) NOT NULL,
+	[Age] [int] NOT NULL,
+	[Gender] [varchar](15) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ClientID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+USE [F25_285A]
+GO
+
+/****** Object:  Table [db_owner].[Staff]    Script Date: 12/3/2025 11:00:59 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [db_owner].[Staff](
+	[StaffID] [int] IDENTITY(1,1) NOT NULL,
+	[SName] [varchar](60) NOT NULL,
+	[SType] [varchar](20) NOT NULL,
+	[Phone] [varchar](20) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[StaffID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+/****** Object:  Table [db_owner].[Classes]    Script Date: 12/3/2025 11:00:18 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [db_owner].[Classes](
+	[ClassID] [int] IDENTITY(1,1) NOT NULL,
+	[CDate] [date] NOT NULL,
+	[CTime] [int] NOT NULL,
+	[ClientID] [int] NOT NULL,
+	[StaffID] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ClassID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [db_owner].[Classes]  WITH CHECK ADD  CONSTRAINT [FK_Classes_Client] FOREIGN KEY([ClientID])
+REFERENCES [db_owner].[Clients] ([ClientID])
+GO
+
+ALTER TABLE [db_owner].[Classes] CHECK CONSTRAINT [FK_Classes_Client]
+GO
+
+ALTER TABLE [db_owner].[Classes]  WITH CHECK ADD  CONSTRAINT [FK_Classes_Staff] FOREIGN KEY([StaffID])
+REFERENCES [db_owner].[Staff] ([StaffID])
+GO
+
+ALTER TABLE [db_owner].[Classes] CHECK CONSTRAINT [FK_Classes_Staff]
+GO
