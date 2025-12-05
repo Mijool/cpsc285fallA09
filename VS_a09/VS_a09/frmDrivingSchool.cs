@@ -226,8 +226,78 @@ FROM (db_owner.Classes inner join db_owner.Clients on db_owner.Clients.ClientID 
         {
             tabControl_DONotEDIT.SelectTab("tabAddClients");
         }
+        
+        
         //Instructors Tab - should all use the same method
-        private void rdoTodayInstructors_CheckedChanged(object sender, EventArgs e)
+
+
+        
+     private void rdoTodayInstructors_CheckedChanged(object sender, EventArgs e)
+ {
+     if (rdoTodayInstructors.Checked)
+         changeScheduleTimeSpan("today");
+ }
+
+ private void rdoWeekInstructors_CheckedChanged(object sender, EventArgs e)
+ {
+     if (rdoWeekInstructors.Checked)
+         changeScheduleTimeSpan("week");
+ }
+
+ private void rdoMonthInstructors_CheckedChanged(object sender, EventArgs e)
+ {
+     if (rdoMonthInstructors.Checked)
+         changeScheduleTimeSpan("month");
+ }
+
+ private void btnScheduleClass_1_Click(object sender, EventArgs e) //changes tabb
+ {
+     tabScheduleClass.Focus();
+ }
+ 
+ //method for changing the timeframe on the gridviewList
+ private void changeScheduleTimeSpan(String timeframe)
+ {
+     // If no staff is selected will do nothing
+     if (staffBindingSource.Current == null)
+         return;
+
+     // Get current staff row and ID
+     DataRowView dataRow = (DataRowView)staffBindingSource.Current;
+     int staffID = (int)dataRow["StaffID"];
+
+     // Compute date range starting today
+     DateTime start = DateTime.Today;
+     DateTime end = start;
+
+     switch (timeframe)
+     {
+         case "today":
+             end = start;
+             return;
+
+         case "week":
+             end = start.AddDays(6);
+             return;
+
+         case "month":
+             end = start.AddDays(29);
+             return;
+     }
+
+     //The filter will work like a WHERE clause in SQL, showing only the matching condition 
+     string filter =
+     "StaffID = " + staffID +
+     " AND CDate >= #" + start.ToString("MM/dd/yyyy") + "#" +
+     " AND CDate <= #" + end.ToString("MM/dd/yyyy") + "#";
+
+     classesBindingSource.Filter = filter;
+
+ }
+
+
+       
+        /*private void rdoTodayInstructors_CheckedChanged(object sender, EventArgs e)
         {
             changeScheduleTimeSpan("today");
         }
@@ -264,7 +334,7 @@ FROM (db_owner.Classes inner join db_owner.Clients on db_owner.Clients.ClientID 
             }
         }
 
-       
+       */
 
 
 
