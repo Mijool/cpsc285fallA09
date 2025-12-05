@@ -81,4 +81,3 @@ GO
 
 ALTER TABLE [db_owner].[Classes] CHECK CONSTRAINT [FK_Classes_Staff]
 GO
-
