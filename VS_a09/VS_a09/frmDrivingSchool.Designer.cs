@@ -345,7 +345,7 @@
             this.cNameComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cNameComboBox1.FormattingEnabled = true;
             this.cNameComboBox1.Location = new System.Drawing.Point(111, 90);
-            this.cNameComboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cNameComboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.cNameComboBox1.Name = "cNameComboBox1";
             this.cNameComboBox1.Size = new System.Drawing.Size(160, 24);
             this.cNameComboBox1.TabIndex = 12;
@@ -696,7 +696,7 @@
             this.sNameComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.sNameComboBox1.FormattingEnabled = true;
             this.sNameComboBox1.Location = new System.Drawing.Point(109, 98);
-            this.sNameComboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.sNameComboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.sNameComboBox1.Name = "sNameComboBox1";
             this.sNameComboBox1.Size = new System.Drawing.Size(160, 24);
             this.sNameComboBox1.TabIndex = 13;
@@ -1221,9 +1221,9 @@
             this.fillbyIncludeNamesToolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.fillbyIncludeNamesToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fillbyIncludeNamesToolStripButton});
-            this.fillbyIncludeNamesToolStrip.Location = new System.Drawing.Point(0, 583);
+            this.fillbyIncludeNamesToolStrip.Location = new System.Drawing.Point(0, 587);
             this.fillbyIncludeNamesToolStrip.Name = "fillbyIncludeNamesToolStrip";
-            this.fillbyIncludeNamesToolStrip.Size = new System.Drawing.Size(1056, 31);
+            this.fillbyIncludeNamesToolStrip.Size = new System.Drawing.Size(1056, 27);
             this.fillbyIncludeNamesToolStrip.TabIndex = 1;
             this.fillbyIncludeNamesToolStrip.Text = "fillbyIncludeNamesToolStrip";
             // 

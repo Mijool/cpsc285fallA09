@@ -35,22 +35,59 @@ namespace VS_a09
 
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            this.staffTableAdapter.Fill(this.f25_285ADataSet.Staff);
-            this.clientsTableAdapter.Fill(this.f25_285ADataSet.Clients);
 
-            this.classesTableAdapter.Fill(this.f25_285ADataSet.Classes);
 
-        }
+        
 
-        private SqlConnection cnnF25_285;
-        private SqlCommand cmdF25_285;
-        private SqlDataReader rdrF25_285;
+        
 
         //change this in App.config as well
         //private String connectionStr = @"Data Source=cissql;Initial Catalog=F25_285A;Integrated Security=True"; //School DBO
-        private String connectionStr = @"Data Source=MACK\MCSQL;Initial Catalog=F25_285A;Integrated Security=True"; //Miguel's DBO
+        String connectionStr = @"Data Source=MACK\MCSQL;Initial Catalog=F25_285A;Integrated Security=True"; //Miguel's DBO
+
+
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            SqlConnection cnnF25_285;
+            SqlCommand cmdF25_285;
+            SqlDataReader rdrF25_285;
+
+            DataTable dtSchedule = new DataTable();
+            try
+            {
+                this.staffTableAdapter.Fill(this.f25_285ADataSet.Staff);
+                this.clientsTableAdapter.Fill(this.f25_285ADataSet.Clients);
+                //this.classesTableAdapter.Fill(this.f25_285ADataSet.Classes);
+
+                cnnF25_285 = new SqlConnection(connectionStr);
+                cnnF25_285.Open();
+
+                cmdF25_285 = new SqlCommand();
+
+
+                cmdF25_285.Connection = cnnF25_285;
+                cmdF25_285.CommandType = CommandType.Text;
+                cmdF25_285.CommandText = "SELECT [db_owner.Classes.CDate], [db_owner.Classes.CTime], [Clients.CName], [Staff.SName] " +
+                    " FROM (db_owner.Classes inner join db_owner.Clients on db_owner.Clients.ClientID = db_owner.Classes.ClientID) inner join db_owner.Staff on db_owner.Staff.StaffID = db_owner.Classes.StaffID " +
+                    " WHERE [db_owner.Clients.ClientID] = " + Convert.ToInt16(clientIDTextBox.Text);
+
+                dtSchedule.Load(cmdF25_285.ExecuteReader());
+
+                classesDataGridView.DataSource = dtSchedule;
+
+                //this.classesTableAdapter.Fill(dtSchedule);
+
+                cnnF25_285.Close();
+
+                
+
+            }
+            catch (Exception ex) { }
+
+        }
+
+            
 
 
         /*
@@ -90,12 +127,13 @@ FROM (db_owner.Classes inner join db_owner.Clients on db_owner.Clients.ClientID 
 
         private void btnScheduleClass_Click(object sender, EventArgs e) //changes tab
         {
-            tabScheduleClass.Focus();
+
+            tabControl_DONotEDIT.SelectTab("tabScheduleClass");
         }
 
         private void btnAddClient_Click(object sender, EventArgs e) //changes tab
         {
-            tabAddClients.Focus();
+            tabControl_DONotEDIT.SelectTab("tabAddClients");
         }
         //Instructors Tab - should all use the same method
         private void rdoTodayInstructors_CheckedChanged(object sender, EventArgs e)
@@ -115,7 +153,7 @@ FROM (db_owner.Classes inner join db_owner.Clients on db_owner.Clients.ClientID 
 
         private void btnScheduleClass_1_Click(object sender, EventArgs e) //changes tabb
         {
-            tabScheduleClass.Focus();
+            tabControl_DONotEDIT.SelectTab("tabScheduleClass");
         }
         
         //method for changing the timeframe on the gridviewList
