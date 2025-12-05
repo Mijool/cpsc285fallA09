@@ -39,7 +39,10 @@ namespace VS_a09
 
         
 
-        
+        SqlConnection cnnF25_285;
+        SqlCommand cmdF25_285;
+        SqlDataReader rdrF25_285;
+
 
         //change this in App.config as well
         //private String connectionStr = @"Data Source=cissql;Initial Catalog=F25_285A;Integrated Security=True"; //School DBO
@@ -49,45 +52,133 @@ namespace VS_a09
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            SqlConnection cnnF25_285;
-            SqlCommand cmdF25_285;
-            SqlDataReader rdrF25_285;
-
-            DataTable dtSchedule = new DataTable();
+            
             try
             {
                 this.staffTableAdapter.Fill(this.f25_285ADataSet.Staff);
                 this.clientsTableAdapter.Fill(this.f25_285ADataSet.Clients);
                 //this.classesTableAdapter.Fill(this.f25_285ADataSet.Classes);
 
-                cnnF25_285 = new SqlConnection(connectionStr);
-                cnnF25_285.Open();
-
-                cmdF25_285 = new SqlCommand();
-
-
-                cmdF25_285.Connection = cnnF25_285;
-                cmdF25_285.CommandType = CommandType.Text;
-                cmdF25_285.CommandText = "SELECT [db_owner.Classes.CDate], [db_owner.Classes.CTime], [Clients.CName], [Staff.SName] " +
-                    " FROM (db_owner.Classes inner join db_owner.Clients on db_owner.Clients.ClientID = db_owner.Classes.ClientID) inner join db_owner.Staff on db_owner.Staff.StaffID = db_owner.Classes.StaffID " +
-                    " WHERE [db_owner.Clients.ClientID] = " + Convert.ToInt16(clientIDTextBox.Text);
-
-                dtSchedule.Load(cmdF25_285.ExecuteReader());
-
-                classesDataGridView.DataSource = dtSchedule;
-
-                //this.classesTableAdapter.Fill(dtSchedule);
-
-                cnnF25_285.Close();
-
+                //rdoMonthClients.Checked = true;
+                //rdoMonthInstructors.Checked = true;
                 
 
             }
-            catch (Exception ex) { }
+            catch (Exception ex) {
+                MessageBox.Show(ex.ToString());
+            
+            }
 
         }
 
+        
+        private static void dataGridViewAlter(SqlConnection cnnView, SqlCommand cmdSelect, DataGridView formsDataGrid, String cnnStr, int idParam, char clientOrInstructor)
+        {
+            cnnView = new SqlConnection(cnnStr);
+            cnnView.Open();
+
+            DataTable dtSchedule = new DataTable();
+            String sqlQuery = buildSelectQuery(idParam, clientOrInstructor, "This Month");
+
+
+            cmdSelect = new SqlCommand(sqlQuery, cnnView);
+
             
+
+            dtSchedule.Load(cmdSelect.ExecuteReader());
+
+            formsDataGrid.DataSource = dtSchedule.AsDataView();
+
+            cnnView.Close();
+        }
+
+        private void clientsTabUpdateDataGridHandler(object sender, EventArgs e) {
+            rdoMonthClients.Checked = true;
+            dataGridViewAlter(cnnF25_285, cmdF25_285, classesDataGridView, connectionStr, Convert.ToInt16(clientIDTextBox.Text), 'c', rdoMonthClients.Text);
+        }
+
+        private void instructorsTabUpdateDataGridHandler(object sender, EventArgs e)
+        {
+            rdoMonthInstructors.Checked = true;
+            dataGridViewAlter(cnnF25_285, cmdF25_285, classesDataGridView1, connectionStr, Convert.ToInt16(staffIDTextBox.Text), 'i', rdoMonthInstructors.Text);
+        }
+
+        private void timeframeRadioButtonUpdateGridHandler(object sender, EventArgs e)
+        {
+            try
+            {
+                //captures object sent as a radioButton (it always will be)
+                RadioButton radioButton = (RadioButton)sender;
+                if (radioButton.Checked == false) { return; }
+                //works for instructors, figure out how to make it work for both
+                dataGridViewAlter(cnnF25_285, cmdF25_285, classesDataGridView1, connectionStr, Convert.ToInt16(staffIDTextBox.Text), 'i', radioButton.Text);
+
+
+            }
+            catch { return; }
+            
+
+
+           
+        }
+
+        private static void dataGridViewAlter(SqlConnection cnnView, SqlCommand cmdSelect, DataGridView formsDataGrid, String cnnStr, int idParam, char clientOrInstructor, String timeframe)
+        {
+            cnnView = new SqlConnection(cnnStr);
+            cnnView.Open();
+
+            DataTable dtSchedule = new DataTable();
+            String sqlQuery = buildSelectQuery(idParam, clientOrInstructor, timeframe);
+
+
+            cmdSelect = new SqlCommand(sqlQuery, cnnView);
+
+
+
+            dtSchedule.Load(cmdSelect.ExecuteReader());
+
+            formsDataGrid.DataSource = dtSchedule.AsDataView();
+
+            cnnView.Close();
+        }
+
+        private static String buildSelectQuery(int idParam, char clientOrInstructor, String timeframe)
+        {
+            String WHEREclause = "";
+
+
+            switch (clientOrInstructor)
+            {
+                case 'c':
+                    WHEREclause = $"Clients.ClientID = {idParam}";
+                    break;
+                case 'i':
+                    WHEREclause = $"Clients.ClientID = {idParam}";
+                    break;
+            }
+
+            switch (timeframe)
+            {
+                case "Today":
+                    WHEREclause += " AND Classes.CDate = GETDATE()";
+
+                    break;
+                case "This Week":
+
+                    WHEREclause += " AND (Classes.CDate BETWEEN GETDATE() AND DATEADD(week, 1, GETDATE()))";
+                    break;
+                case "This Month":
+                    WHEREclause += " AND (Classes.CDate BETWEEN GETDATE() AND DATEADD(month, 1, GETDATE()))";
+                    //WHEREclause += " AND Classes.CDate <= GETDATE() + 30 AND Classes.CDate >= GETDATE()";
+                    break;
+            }
+
+
+            String sqlQuery = "SELECT Classes.CDate [Class Date], Classes.CTime [Class Time], Clients.CName [Client], Staff.SName [Staff] " +
+                              " FROM db_owner.Classes inner join db_owner.Clients on Clients.ClientID = Classes.ClientID inner join db_owner.Staff on Staff.StaffID = Classes.StaffID " +
+                              $" WHERE {WHEREclause}";
+            return sqlQuery;
+        }
 
 
         /*

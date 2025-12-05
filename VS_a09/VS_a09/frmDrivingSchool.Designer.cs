@@ -70,11 +70,6 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.clientsBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.classesDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.classesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientIDTextBox = new System.Windows.Forms.TextBox();
             this.ageTextBox = new System.Windows.Forms.TextBox();
@@ -101,11 +96,6 @@
             this.bindingNavigatorMoveLastItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.classesDataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.classesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.staffIDTextBox = new System.Windows.Forms.TextBox();
             this.sTypeTextBox = new System.Windows.Forms.TextBox();
@@ -132,9 +122,9 @@
             this.tableAdapterManager = new VS_a09.F25_285ADataSetTableAdapters.TableAdapterManager();
             this.classesTableAdapter = new VS_a09.F25_285ADataSetTableAdapters.ClassesTableAdapter();
             this.staffTableAdapter = new VS_a09.F25_285ADataSetTableAdapters.StaffTableAdapter();
-            this.fillbyIncludeNamesToolStrip = new System.Windows.Forms.ToolStrip();
-            this.fillbyIncludeNamesToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.fKClassesClientBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             clientIDLabel = new System.Windows.Forms.Label();
             ageLabel = new System.Windows.Forms.Label();
             genderLabel = new System.Windows.Forms.Label();
@@ -167,14 +157,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.classesBindingSource1)).BeginInit();
             this.tabAddClients.SuspendLayout();
             this.tabScheduleClass.SuspendLayout();
-            this.fillbyIncludeNamesToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fKClassesClientBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // clientIDLabel
             // 
             clientIDLabel.AutoSize = true;
-            clientIDLabel.Location = new System.Drawing.Point(41, 55);
+            clientIDLabel.Location = new System.Drawing.Point(42, 80);
             clientIDLabel.Name = "clientIDLabel";
             clientIDLabel.Size = new System.Drawing.Size(59, 16);
             clientIDLabel.TabIndex = 0;
@@ -183,7 +172,7 @@
             // ageLabel
             // 
             ageLabel.AutoSize = true;
-            ageLabel.Location = new System.Drawing.Point(41, 138);
+            ageLabel.Location = new System.Drawing.Point(42, 156);
             ageLabel.Name = "ageLabel";
             ageLabel.Size = new System.Drawing.Size(35, 16);
             ageLabel.TabIndex = 4;
@@ -192,7 +181,7 @@
             // genderLabel
             // 
             genderLabel.AutoSize = true;
-            genderLabel.Location = new System.Drawing.Point(41, 178);
+            genderLabel.Location = new System.Drawing.Point(42, 196);
             genderLabel.Name = "genderLabel";
             genderLabel.Size = new System.Drawing.Size(55, 16);
             genderLabel.TabIndex = 6;
@@ -201,7 +190,7 @@
             // staffIDLabel
             // 
             staffIDLabel.AutoSize = true;
-            staffIDLabel.Location = new System.Drawing.Point(47, 62);
+            staffIDLabel.Location = new System.Drawing.Point(42, 80);
             staffIDLabel.Name = "staffIDLabel";
             staffIDLabel.Size = new System.Drawing.Size(52, 16);
             staffIDLabel.TabIndex = 0;
@@ -210,16 +199,16 @@
             // sTypeLabel
             // 
             sTypeLabel.AutoSize = true;
-            sTypeLabel.Location = new System.Drawing.Point(47, 144);
+            sTypeLabel.Location = new System.Drawing.Point(42, 156);
             sTypeLabel.Name = "sTypeLabel";
-            sTypeLabel.Size = new System.Drawing.Size(51, 16);
+            sTypeLabel.Size = new System.Drawing.Size(58, 16);
             sTypeLabel.TabIndex = 4;
-            sTypeLabel.Text = "SType:";
+            sTypeLabel.Text = "Position:";
             // 
             // phoneLabel
             // 
             phoneLabel.AutoSize = true;
-            phoneLabel.Location = new System.Drawing.Point(47, 185);
+            phoneLabel.Location = new System.Drawing.Point(42, 197);
             phoneLabel.Name = "phoneLabel";
             phoneLabel.Size = new System.Drawing.Size(49, 16);
             phoneLabel.TabIndex = 6;
@@ -282,22 +271,22 @@
             // sNameLabel
             // 
             sNameLabel.AutoSize = true;
-            sNameLabel.Location = new System.Drawing.Point(48, 103);
+            sNameLabel.Location = new System.Drawing.Point(43, 115);
             sNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             sNameLabel.Name = "sNameLabel";
-            sNameLabel.Size = new System.Drawing.Size(56, 16);
+            sNameLabel.Size = new System.Drawing.Size(47, 16);
             sNameLabel.TabIndex = 12;
-            sNameLabel.Text = "SName:";
+            sNameLabel.Text = "Name:";
             // 
             // cNameLabel
             // 
             cNameLabel.AutoSize = true;
-            cNameLabel.Location = new System.Drawing.Point(41, 97);
+            cNameLabel.Location = new System.Drawing.Point(42, 115);
             cNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             cNameLabel.Name = "cNameLabel";
-            cNameLabel.Size = new System.Drawing.Size(56, 16);
+            cNameLabel.Size = new System.Drawing.Size(47, 16);
             cNameLabel.TabIndex = 11;
-            cNameLabel.Text = "CName:";
+            cNameLabel.Text = "Name:";
             // 
             // tabControl_DONotEDIT
             // 
@@ -315,6 +304,7 @@
             // tabClients
             // 
             this.tabClients.AutoScroll = true;
+            this.tabClients.Controls.Add(this.label7);
             this.tabClients.Controls.Add(cNameLabel);
             this.tabClients.Controls.Add(this.cNameComboBox1);
             this.tabClients.Controls.Add(this.btnAddClient);
@@ -344,7 +334,7 @@
             this.cNameComboBox1.DisplayMember = "CName";
             this.cNameComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cNameComboBox1.FormattingEnabled = true;
-            this.cNameComboBox1.Location = new System.Drawing.Point(111, 90);
+            this.cNameComboBox1.Location = new System.Drawing.Point(112, 115);
             this.cNameComboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.cNameComboBox1.Name = "cNameComboBox1";
             this.cNameComboBox1.Size = new System.Drawing.Size(160, 24);
@@ -411,15 +401,14 @@
             // rdoMonthClients
             // 
             this.rdoMonthClients.AutoSize = true;
-            this.rdoMonthClients.Checked = true;
             this.rdoMonthClients.Location = new System.Drawing.Point(81, 123);
             this.rdoMonthClients.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdoMonthClients.Name = "rdoMonthClients";
             this.rdoMonthClients.Size = new System.Drawing.Size(93, 20);
             this.rdoMonthClients.TabIndex = 2;
-            this.rdoMonthClients.TabStop = true;
             this.rdoMonthClients.Text = "This Month";
             this.rdoMonthClients.UseVisualStyleBackColor = true;
+            this.rdoMonthClients.CheckedChanged += new System.EventHandler(this.timeframeRadioButtonUpdateGridHandler);
             // 
             // rdoWeekClients
             // 
@@ -431,6 +420,7 @@
             this.rdoWeekClients.TabIndex = 1;
             this.rdoWeekClients.Text = "This Week";
             this.rdoWeekClients.UseVisualStyleBackColor = true;
+            this.rdoWeekClients.CheckedChanged += new System.EventHandler(this.timeframeRadioButtonUpdateGridHandler);
             // 
             // rdoTodayClients
             // 
@@ -442,6 +432,7 @@
             this.rdoTodayClients.TabIndex = 0;
             this.rdoTodayClients.Text = "Today";
             this.rdoTodayClients.UseVisualStyleBackColor = true;
+            this.rdoTodayClients.CheckedChanged += new System.EventHandler(this.timeframeRadioButtonUpdateGridHandler);
             // 
             // clientsBindingNavigator
             // 
@@ -571,63 +562,17 @@
             // 
             // classesDataGridView
             // 
-            this.classesDataGridView.AutoGenerateColumns = false;
+            this.classesDataGridView.AllowUserToAddRows = false;
+            this.classesDataGridView.AllowUserToDeleteRows = false;
             this.classesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.classesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5});
-            this.classesDataGridView.DataSource = this.classesBindingSource;
-            this.classesDataGridView.Location = new System.Drawing.Point(45, 217);
+            this.classesDataGridView.Location = new System.Drawing.Point(45, 240);
             this.classesDataGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.classesDataGridView.Name = "classesDataGridView";
+            this.classesDataGridView.ReadOnly = true;
             this.classesDataGridView.RowHeadersWidth = 51;
             this.classesDataGridView.RowTemplate.Height = 24;
             this.classesDataGridView.Size = new System.Drawing.Size(856, 315);
             this.classesDataGridView.TabIndex = 8;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "ClassID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "ClassID";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "CDate";
-            this.dataGridViewTextBoxColumn2.HeaderText = "CDate";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "CTime";
-            this.dataGridViewTextBoxColumn3.HeaderText = "CTime";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "ClientID";
-            this.dataGridViewTextBoxColumn4.HeaderText = "ClientID";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "StaffID";
-            this.dataGridViewTextBoxColumn5.HeaderText = "StaffID";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 125;
             // 
             // classesBindingSource
             // 
@@ -637,17 +582,18 @@
             // clientIDTextBox
             // 
             this.clientIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientsBindingSource, "ClientID", true));
-            this.clientIDTextBox.Location = new System.Drawing.Point(112, 49);
+            this.clientIDTextBox.Location = new System.Drawing.Point(113, 74);
             this.clientIDTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.clientIDTextBox.Name = "clientIDTextBox";
             this.clientIDTextBox.ReadOnly = true;
             this.clientIDTextBox.Size = new System.Drawing.Size(100, 22);
             this.clientIDTextBox.TabIndex = 1;
+            this.clientIDTextBox.TextChanged += new System.EventHandler(this.clientsTabUpdateDataGridHandler);
             // 
             // ageTextBox
             // 
             this.ageTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientsBindingSource, "Age", true));
-            this.ageTextBox.Location = new System.Drawing.Point(112, 132);
+            this.ageTextBox.Location = new System.Drawing.Point(113, 157);
             this.ageTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ageTextBox.Name = "ageTextBox";
             this.ageTextBox.ReadOnly = true;
@@ -657,7 +603,7 @@
             // genderTextBox
             // 
             this.genderTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientsBindingSource, "Gender", true));
-            this.genderTextBox.Location = new System.Drawing.Point(112, 172);
+            this.genderTextBox.Location = new System.Drawing.Point(113, 197);
             this.genderTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.genderTextBox.Name = "genderTextBox";
             this.genderTextBox.ReadOnly = true;
@@ -667,6 +613,7 @@
             // tabInstructors
             // 
             this.tabInstructors.AutoScroll = true;
+            this.tabInstructors.Controls.Add(this.label8);
             this.tabInstructors.Controls.Add(sNameLabel);
             this.tabInstructors.Controls.Add(this.sNameComboBox1);
             this.tabInstructors.Controls.Add(this.btnScheduleClass_1);
@@ -695,7 +642,7 @@
             this.sNameComboBox1.DisplayMember = "SName";
             this.sNameComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.sNameComboBox1.FormattingEnabled = true;
-            this.sNameComboBox1.Location = new System.Drawing.Point(109, 98);
+            this.sNameComboBox1.Location = new System.Drawing.Point(113, 113);
             this.sNameComboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.sNameComboBox1.Name = "sNameComboBox1";
             this.sNameComboBox1.Size = new System.Drawing.Size(160, 24);
@@ -745,16 +692,15 @@
             // rdoMonthInstructors
             // 
             this.rdoMonthInstructors.AutoSize = true;
-            this.rdoMonthInstructors.Checked = true;
             this.rdoMonthInstructors.Location = new System.Drawing.Point(81, 123);
             this.rdoMonthInstructors.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdoMonthInstructors.Name = "rdoMonthInstructors";
             this.rdoMonthInstructors.Size = new System.Drawing.Size(93, 20);
             this.rdoMonthInstructors.TabIndex = 2;
-            this.rdoMonthInstructors.TabStop = true;
             this.rdoMonthInstructors.Text = "This Month";
             this.rdoMonthInstructors.UseVisualStyleBackColor = true;
             this.rdoMonthInstructors.CheckedChanged += new System.EventHandler(this.rdoMonthInstructors_CheckedChanged);
+            this.rdoMonthInstructors.Click += new System.EventHandler(this.timeframeRadioButtonUpdateGridHandler);
             // 
             // rdoWeekInstructors
             // 
@@ -766,7 +712,7 @@
             this.rdoWeekInstructors.TabIndex = 1;
             this.rdoWeekInstructors.Text = "This Week";
             this.rdoWeekInstructors.UseVisualStyleBackColor = true;
-            this.rdoWeekInstructors.CheckedChanged += new System.EventHandler(this.rdoWeekInstructors_CheckedChanged);
+            this.rdoWeekInstructors.Click += new System.EventHandler(this.timeframeRadioButtonUpdateGridHandler);
             // 
             // rdoTodayInstructors
             // 
@@ -778,7 +724,6 @@
             this.rdoTodayInstructors.TabIndex = 0;
             this.rdoTodayInstructors.Text = "Today";
             this.rdoTodayInstructors.UseVisualStyleBackColor = true;
-            this.rdoTodayInstructors.CheckedChanged += new System.EventHandler(this.rdoTodayInstructors_CheckedChanged);
             // 
             // bindingNavigator1
             // 
@@ -898,63 +843,17 @@
             // 
             // classesDataGridView1
             // 
-            this.classesDataGridView1.AutoGenerateColumns = false;
+            this.classesDataGridView1.AllowUserToAddRows = false;
+            this.classesDataGridView1.AllowUserToDeleteRows = false;
             this.classesDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.classesDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10});
-            this.classesDataGridView1.DataSource = this.classesBindingSource1;
-            this.classesDataGridView1.Location = new System.Drawing.Point(49, 223);
+            this.classesDataGridView1.Location = new System.Drawing.Point(45, 240);
             this.classesDataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.classesDataGridView1.Name = "classesDataGridView1";
+            this.classesDataGridView1.ReadOnly = true;
             this.classesDataGridView1.RowHeadersWidth = 51;
             this.classesDataGridView1.RowTemplate.Height = 24;
-            this.classesDataGridView1.Size = new System.Drawing.Size(921, 347);
+            this.classesDataGridView1.Size = new System.Drawing.Size(856, 315);
             this.classesDataGridView1.TabIndex = 8;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "ClassID";
-            this.dataGridViewTextBoxColumn6.HeaderText = "ClassID";
-            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "CDate";
-            this.dataGridViewTextBoxColumn7.HeaderText = "CDate";
-            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "CTime";
-            this.dataGridViewTextBoxColumn8.HeaderText = "CTime";
-            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "ClientID";
-            this.dataGridViewTextBoxColumn9.HeaderText = "ClientID";
-            this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "StaffID";
-            this.dataGridViewTextBoxColumn10.HeaderText = "StaffID";
-            this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.Width = 125;
             // 
             // classesBindingSource1
             // 
@@ -964,17 +863,18 @@
             // staffIDTextBox
             // 
             this.staffIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.staffBindingSource, "StaffID", true));
-            this.staffIDTextBox.Location = new System.Drawing.Point(109, 58);
+            this.staffIDTextBox.Location = new System.Drawing.Point(113, 74);
             this.staffIDTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.staffIDTextBox.Name = "staffIDTextBox";
             this.staffIDTextBox.ReadOnly = true;
             this.staffIDTextBox.Size = new System.Drawing.Size(100, 22);
             this.staffIDTextBox.TabIndex = 1;
+            this.staffIDTextBox.TextChanged += new System.EventHandler(this.instructorsTabUpdateDataGridHandler);
             // 
             // sTypeTextBox
             // 
             this.sTypeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.staffBindingSource, "SType", true));
-            this.sTypeTextBox.Location = new System.Drawing.Point(109, 140);
+            this.sTypeTextBox.Location = new System.Drawing.Point(113, 154);
             this.sTypeTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sTypeTextBox.Name = "sTypeTextBox";
             this.sTypeTextBox.ReadOnly = true;
@@ -984,7 +884,7 @@
             // phoneTextBox
             // 
             this.phoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.staffBindingSource, "Phone", true));
-            this.phoneTextBox.Location = new System.Drawing.Point(109, 181);
+            this.phoneTextBox.Location = new System.Drawing.Point(113, 193);
             this.phoneTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.ReadOnly = true;
@@ -1215,37 +1115,34 @@
             // 
             this.staffTableAdapter.ClearBeforeFill = true;
             // 
-            // fillbyIncludeNamesToolStrip
-            // 
-            this.fillbyIncludeNamesToolStrip.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.fillbyIncludeNamesToolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.fillbyIncludeNamesToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fillbyIncludeNamesToolStripButton});
-            this.fillbyIncludeNamesToolStrip.Location = new System.Drawing.Point(0, 587);
-            this.fillbyIncludeNamesToolStrip.Name = "fillbyIncludeNamesToolStrip";
-            this.fillbyIncludeNamesToolStrip.Size = new System.Drawing.Size(1056, 27);
-            this.fillbyIncludeNamesToolStrip.TabIndex = 1;
-            this.fillbyIncludeNamesToolStrip.Text = "fillbyIncludeNamesToolStrip";
-            // 
-            // fillbyIncludeNamesToolStripButton
-            // 
-            this.fillbyIncludeNamesToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.fillbyIncludeNamesToolStripButton.Name = "fillbyIncludeNamesToolStripButton";
-            this.fillbyIncludeNamesToolStripButton.Size = new System.Drawing.Size(142, 24);
-            this.fillbyIncludeNamesToolStripButton.Text = "FillbyIncludeNames";
-            this.fillbyIncludeNamesToolStripButton.Click += new System.EventHandler(this.fillbyIncludeNamesToolStripButton_Click);
-            // 
             // fKClassesClientBindingSource
             // 
             this.fKClassesClientBindingSource.DataMember = "FK_Classes_Client";
             this.fKClassesClientBindingSource.DataSource = this.clientsBindingSource;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(29, 45);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(165, 16);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Now showing schedule for:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(29, 45);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(165, 16);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Now showing schedule for:";
             // 
             // frmDrivingSchool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1056, 614);
-            this.Controls.Add(this.fillbyIncludeNamesToolStrip);
             this.Controls.Add(this.tabControl_DONotEDIT);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmDrivingSchool";
@@ -1277,11 +1174,8 @@
             this.tabAddClients.PerformLayout();
             this.tabScheduleClass.ResumeLayout(false);
             this.tabScheduleClass.PerformLayout();
-            this.fillbyIncludeNamesToolStrip.ResumeLayout(false);
-            this.fillbyIncludeNamesToolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fKClassesClientBindingSource)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -1315,19 +1209,9 @@
         private F25_285ADataSetTableAdapters.ClassesTableAdapter classesTableAdapter;
         private System.Windows.Forms.BindingSource classesBindingSource;
         private System.Windows.Forms.DataGridView classesDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private F25_285ADataSetTableAdapters.StaffTableAdapter staffTableAdapter;
         private System.Windows.Forms.BindingSource staffBindingSource;
         private System.Windows.Forms.DataGridView classesDataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.BindingSource classesBindingSource1;
         private System.Windows.Forms.TextBox staffIDTextBox;
         private System.Windows.Forms.TextBox sTypeTextBox;
@@ -1375,9 +1259,9 @@
         private System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.ComboBox sNameComboBox1;
         private System.Windows.Forms.ComboBox cNameComboBox1;
-        private System.Windows.Forms.ToolStrip fillbyIncludeNamesToolStrip;
-        private System.Windows.Forms.ToolStripButton fillbyIncludeNamesToolStripButton;
         private System.Windows.Forms.BindingSource fKClassesClientBindingSource;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }
 
