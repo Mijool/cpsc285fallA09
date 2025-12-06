@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Data.SqlTypes;
 
 
 namespace VS_a09
@@ -57,11 +58,11 @@ namespace VS_a09
             {
                 this.staffTableAdapter.Fill(this.f25_285ADataSet.Staff);
                 this.clientsTableAdapter.Fill(this.f25_285ADataSet.Clients);
-                //this.classesTableAdapter.Fill(this.f25_285ADataSet.Classes);
 
-                //rdoMonthClients.Checked = true;
-                //rdoMonthInstructors.Checked = true;
-                
+                for (int i = 700; i <= 1700; i += 50)
+                {
+                    cboPickClasstime.Items.Add(i.ToString());
+                }
 
             }
             catch (Exception ex) {
@@ -172,9 +173,16 @@ namespace VS_a09
 
             dtSchedule.Load(cmdSelect.ExecuteReader());
 
+            cnnView.Close();
+
+            //dtSchedule.Columns["Class Time"].DataType = typeof(DateTime);
+
             formsDataGrid.DataSource = dtSchedule;
 
-            cnnView.Close();
+            //formsDataGrid.Columns["Class Time"].DefaultCellStyle.Format = "HH:mm";
+
+
+
         }
 
         //private static String buildSelectQuery(int idParam, char clientOrInstructor, String timeframe)
@@ -404,6 +412,8 @@ namespace VS_a09
             SqlCommand cmdInsert;
             int rowsInserted;
             String strSql;
+
+
 
             string name = "James Smith";
             int age = 17;
