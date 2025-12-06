@@ -71,26 +71,6 @@ namespace VS_a09
 
         }
 
-        
-        private static void dataGridViewAlter(SqlConnection cnnView, SqlCommand cmdSelect, DataGridView formsDataGrid, String cnnStr, int idParam, char clientOrInstructor)
-        {
-            cnnView = new SqlConnection(cnnStr);
-            cnnView.Open();
-
-            DataTable dtSchedule = new DataTable();
-            String sqlQuery = buildSelectQuery(idParam, clientOrInstructor, "This Month");
-
-
-            cmdSelect = new SqlCommand(sqlQuery, cnnView);
-
-            
-
-            dtSchedule.Load(cmdSelect.ExecuteReader());
-
-            formsDataGrid.DataSource = dtSchedule.AsDataView();
-
-            cnnView.Close();
-        }
 
         private void clientsTabUpdateDataGridHandler(object sender, EventArgs e) {
             rdoMonthClients.Checked = true;
@@ -103,7 +83,26 @@ namespace VS_a09
             dataGridViewAlter(cnnF25_285, cmdF25_285, classesDataGridView1, connectionStr, Convert.ToInt16(staffIDTextBox.Text), 'i', rdoMonthInstructors.Text);
         }
 
-        private void timeframeRadioButtonUpdateGridHandler(object sender, EventArgs e)
+        private void timeframeInstructorRadioButtonUpdateGridHandler(object sender, EventArgs e)
+        {
+            try
+            {
+                //captures object sent as a radioButton (it always will be)
+                RadioButton radioButton = (RadioButton) sender;
+               if (radioButton.Checked == false) { return; }
+                //works for instructors, figure out how to make it work for both
+               dataGridViewAlter(cnnF25_285, cmdF25_285, classesDataGridView1, connectionStr, Convert.ToInt16(staffIDTextBox.Text), 'i', radioButton.Text);
+                //changeScheduleTimeSpan(radioButton.Text);
+
+
+            }
+            catch { return; }
+
+
+
+
+        }
+        private void timeframeClientRadioButtonUpdateGridHandler(object sender, EventArgs e)
         {
             try
             {
@@ -111,15 +110,15 @@ namespace VS_a09
                 RadioButton radioButton = (RadioButton)sender;
                 if (radioButton.Checked == false) { return; }
                 //works for instructors, figure out how to make it work for both
-                dataGridViewAlter(cnnF25_285, cmdF25_285, classesDataGridView1, connectionStr, Convert.ToInt16(staffIDTextBox.Text), 'i', radioButton.Text);
+                dataGridViewAlter(cnnF25_285, cmdF25_285, classesDataGridView, connectionStr, Convert.ToInt16(clientIDTextBox.Text), 'c', radioButton.Text);
+                //changeScheduleTimeSpan(radioButton.Text);
 
 
             }
             catch { return; }
-            
 
 
-           
+
         }
 
         private static void dataGridViewAlter(SqlConnection cnnView, SqlCommand cmdSelect, DataGridView formsDataGrid, String cnnStr, int idParam, char clientOrInstructor, String timeframe)
@@ -128,8 +127,44 @@ namespace VS_a09
             cnnView.Open();
 
             DataTable dtSchedule = new DataTable();
-            String sqlQuery = buildSelectQuery(idParam, clientOrInstructor, timeframe);
+            String WHEREclause = "";
 
+            switch (clientOrInstructor)
+            {
+                case 'c':
+                    WHEREclause = $"(Clients.ClientID = {idParam}) ";
+                    break;
+                case 'i':
+                    WHEREclause = $"(Staff.StaffID = {idParam}) ";
+                    break;
+            }
+
+            switch (timeframe)
+            {
+                case "Today":
+                    WHEREclause += " AND (Classes.CDate = GETDATE())";
+
+                    break;
+                case "This Week":
+
+                    WHEREclause += " AND (Classes.CDate BETWEEN GETDATE() AND DATEADD(day, 6, GETDATE()))";
+
+                    break;
+                case "This Month":
+                    WHEREclause += " AND (Classes.CDate BETWEEN GETDATE() AND DATEADD(day, 29, GETDATE()))";
+
+                    break;
+                case "All":
+
+                    break;
+
+            }
+
+
+
+            String sqlQuery = "SELECT Classes.CDate [Class Date], Classes.CTime [Class Time], Clients.CName [Client], Staff.SName [Staff] " +
+                                 " FROM db_owner.Classes inner join db_owner.Clients on Clients.ClientID = Classes.ClientID inner join db_owner.Staff on Staff.StaffID = Classes.StaffID " +
+                                 $" WHERE {WHEREclause}";
 
             cmdSelect = new SqlCommand(sqlQuery, cnnView);
 
@@ -137,84 +172,51 @@ namespace VS_a09
 
             dtSchedule.Load(cmdSelect.ExecuteReader());
 
-            formsDataGrid.DataSource = dtSchedule.AsDataView();
+            formsDataGrid.DataSource = dtSchedule;
 
             cnnView.Close();
         }
 
-        private static String buildSelectQuery(int idParam, char clientOrInstructor, String timeframe)
-        {
-            String WHEREclause = "";
-
-
-            switch (clientOrInstructor)
-            {
-                case 'c':
-                    WHEREclause = $"Clients.ClientID = {idParam}";
-                    break;
-                case 'i':
-                    WHEREclause = $"Clients.ClientID = {idParam}";
-                    break;
-            }
-
-            switch (timeframe)
-            {
-                case "Today":
-                    WHEREclause += " AND Classes.CDate = GETDATE()";
-
-                    break;
-                case "This Week":
-
-                    WHEREclause += " AND (Classes.CDate BETWEEN GETDATE() AND DATEADD(week, 1, GETDATE()))";
-                    break;
-                case "This Month":
-                    WHEREclause += " AND (Classes.CDate BETWEEN GETDATE() AND DATEADD(month, 1, GETDATE()))";
-                    //WHEREclause += " AND Classes.CDate <= GETDATE() + 30 AND Classes.CDate >= GETDATE()";
-                    break;
-            }
-
-
-            String sqlQuery = "SELECT Classes.CDate [Class Date], Classes.CTime [Class Time], Clients.CName [Client], Staff.SName [Staff] " +
-                              " FROM db_owner.Classes inner join db_owner.Clients on Clients.ClientID = Classes.ClientID inner join db_owner.Staff on Staff.StaffID = Classes.StaffID " +
-                              $" WHERE {WHEREclause}";
-            return sqlQuery;
-        }
-
-
-        /*
-         * 
-         * 
-         * Make sure schedule class tab populates comboboxes properly
-         * 
-         * 
-         * hard code datagrid to load this query
-         * 
-         * 
-         * 
-         SELECT ClassID, CDate, CTime, Classes.ClientID, Clients.CName, Staff.SName,Classes.StaffID 
-FROM (db_owner.Classes inner join db_owner.Clients on db_owner.Clients.ClientID = db_owner.Classes.ClientID) inner join db_owner.Staff on db_owner.Staff.StaffID = db_owner.Classes.StaffID
-         
-         */
-
-        // Clients Tab
-
-
-
-        //clients tab shouldnt include this buttons will not work (check designer cs file)
-        //private void rdoTodayClients_CheckedChanged(object sender, EventArgs e) 
+        //private static String buildSelectQuery(int idParam, char clientOrInstructor, String timeframe)
         //{
-        //    changeScheduleTimeSpan("today");
+        //    String WHEREclause = "";
+
+
+        //    switch (clientOrInstructor)
+        //    {
+        //        case 'c':
+        //            WHEREclause = $"Clients.ClientID = {idParam}";
+        //            break;
+        //        case 'i':
+        //            WHEREclause = $"Clients.ClientID = {idParam}";
+        //            break;
+        //    }
+
+        //    switch (timeframe)
+        //    {
+        //        case "Today":
+        //            WHEREclause += " AND Classes.CDate = GETDATE()";
+
+        //            break;
+        //        case "This Week":
+
+        //            WHEREclause += " AND (Classes.CDate BETWEEN GETDATE() AND DATEADD(week, 1, GETDATE()))";
+        //            break;
+        //        case "This Month":
+        //            WHEREclause += " AND (Classes.CDate BETWEEN GETDATE() AND DATEADD(month, 1, GETDATE()))";
+        //            
+        //            break;
+        //    }
+
+
+        //    String sqlQuery = "SELECT Classes.CDate [Class Date], Classes.CTime [Class Time], Clients.CName [Client], Staff.SName [Staff] " +
+        //                      " FROM db_owner.Classes inner join db_owner.Clients on Clients.ClientID = Classes.ClientID inner join db_owner.Staff on Staff.StaffID = Classes.StaffID " +
+        //                      $" WHERE {WHEREclause}";
+        //    return sqlQuery;
         //}
 
-        //private void rdoWeekClients_CheckedChanged(object sender, EventArgs e)
-        //{
-        //    changeScheduleTimeSpan("week");
-        //}
 
-        //private void rdoMonthClients_CheckedChanged(object sender, EventArgs e)
-        //{
-        //    changeScheduleTimeSpan("month");
-        //}
+
 
         private void btnScheduleClass_Click(object sender, EventArgs e) //changes tab
         {
@@ -231,69 +233,101 @@ FROM (db_owner.Classes inner join db_owner.Clients on db_owner.Clients.ClientID 
         //Instructors Tab - should all use the same method
 
 
-        
-     private void rdoTodayInstructors_CheckedChanged(object sender, EventArgs e)
- {
-     if (rdoTodayInstructors.Checked)
-         changeScheduleTimeSpan("today");
- }
-
- private void rdoWeekInstructors_CheckedChanged(object sender, EventArgs e)
- {
-     if (rdoWeekInstructors.Checked)
-         changeScheduleTimeSpan("week");
- }
-
- private void rdoMonthInstructors_CheckedChanged(object sender, EventArgs e)
- {
-     if (rdoMonthInstructors.Checked)
-         changeScheduleTimeSpan("month");
- }
-
  private void btnScheduleClass_1_Click(object sender, EventArgs e) //changes tabb
  {
-     tabScheduleClass.Focus();
+            tabControl_DONotEDIT.SelectTab("tabScheduleClass");
  }
- 
- //method for changing the timeframe on the gridviewList
- private void changeScheduleTimeSpan(String timeframe)
- {
-     // If no staff is selected will do nothing
-     if (staffBindingSource.Current == null)
-         return;
+       
+ //    private void rdoTodayInstructors_CheckedChanged(object sender, EventArgs e)
+ //{
+ //    if (rdoTodayInstructors.Checked)
+ //        changeScheduleTimeSpan("Today");
+ //}
 
-     // Get current staff row and ID
-     DataRowView dataRow = (DataRowView)staffBindingSource.Current;
-     int staffID = (int)dataRow["StaffID"];
+ //private void rdoWeekInstructors_CheckedChanged(object sender, EventArgs e)
+ //{
+ //    if (rdoWeekInstructors.Checked)
+ //        changeScheduleTimeSpan("This Week");
+ //}
 
-     // Compute date range starting today
-     DateTime start = DateTime.Today;
-     DateTime end = start;
+ //private void rdoMonthInstructors_CheckedChanged(object sender, EventArgs e)
+ //{
+ //    if (rdoMonthInstructors.Checked)
+ //        changeScheduleTimeSpan("This Month");
+ //}
 
-     switch (timeframe)
-     {
-         case "today":
-             end = start;
-             return;
 
-         case "week":
-             end = start.AddDays(6);
-             return;
+ //method for changing the timeframe on the gridviewList - Jimmy
+ //private void changeScheduleTimeSpan(String timeframe)
+ //{
+ //    // If no staff is selected will do nothing
+ //    //if (staffBindingSource.Current == null)
+ //    //    return;
 
-         case "month":
-             end = start.AddDays(29);
-             return;
-     }
+ //           // Get current staff row and ID
+ //           //DataRowView dataRow = (DataRowView)staffBindingSource.Current;
+ //           //int staffID = (int)dataRow["StaffID"];
+ //   int staffID = Convert.ToInt16(staffIDTextBox.Text);
 
-     //The filter will work like a WHERE clause in SQL, showing only the matching condition 
-     string filter =
-     "StaffID = " + staffID +
-     " AND CDate >= #" + start.ToString("MM/dd/yyyy") + "#" +
-     " AND CDate <= #" + end.ToString("MM/dd/yyyy") + "#";
+ //    // Compute date range starting today
+ //    DateTime start = DateTime.Today;
+ //    DateTime end = start;
 
-     classesBindingSource.Filter = filter;
+ //   switch (timeframe)
+ //   {
+ //        case "Today":
+ //            end = start;
+ //            break;
 
- }
+ //        case "This Week":
+ //            end = start.AddDays(6);
+ //            break;
+
+ //        case "This Month":
+ //            end = start.AddDays(29);
+ //            break;
+ //   }
+
+ //           //The filter will work like a WHERE clause in SQL, showing only the matching condition
+ //           string filter =
+ //           $"StaffID = {staffID}" +
+ //           $" AND [CDate] >= #{start:MM/dd/yyyy)}#" +
+ //           $" AND [CDate] <= #{end:MM/dd/yyyy)}#";
+
+ //           BindingSource bs = (BindingSource)classesDataGridView1.DataSource;
+
+           
+ //           DataTable dt = (DataTable) bs.DataSource;
+
+
+ //           dt.DefaultView.RowFilter = filter;
+
+            //BindingSource filteredBSrc = classesDataGridView1.DataSource as BindingSource;
+
+            
+            //if (filteredBSrc == null)
+            //{
+            //    filteredBSrc = new BindingSource();
+            //    filteredBSrc.DataSource = classesDataGridView1.DataSource;
+            //    classesDataGridView1.DataSource = filteredBSrc;
+            //}
+
+            //// Just apply the filter to the existing BindingSource
+            //filteredBSrc.Filter = filter;
+
+    
+            //classesDataGridView1.DataSource = filteredBSrc;
+
+            
+
+    
+     
+            
+            //classesBindingSource.Filter = filter;
+            
+     //classesDataGridView1. = classesBindingSource;
+
+ //}
 
 
        
@@ -365,32 +399,60 @@ FROM (db_owner.Classes inner join db_owner.Clients on db_owner.Clients.ClientID 
 
         //Schedule a new Class - Isai
         private void btnInsertScheduledClass_Click(object sender, EventArgs e)
-        {
+        { 
+            SqlConnection cnnSample;
+            SqlCommand cmdInsert;
+            int rowsInserted;
+            String strSql;
+
+            string name = "James Smith";
+            int age = 17;
+            string gender = "M";
+
+            strSql =
+                "INSERT INTO db_owner.Clients (CName, Age, Gender) " +
+                "VALUES ('" + name + "', " + age + ", '" + gender + "')";
+
             try
             {
-                //insert query
+                cnnSample = new SqlConnection(connectionStr);
+                cnnSample.Open();
+
+                cmdInsert = new SqlCommand();
+
+                cmdInsert.Connection = cnnSample;
+                cmdInsert.CommandType = CommandType.Text;
+                cmdInsert.CommandText = strSql;
+
+                rowsInserted = cmdInsert.ExecuteNonQuery();
+
+                MessageBox.Show(rowsInserted + "have been inserted.");
+
+                cnnSample.Close();
+
+                this.classesTableAdapter.Fill(this.f25_285ADataSet.Classes);
             }
             catch (FormatException ex)
             {
-
+                MessageBox.Show("Bad format: " + ex.Message);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("error");
+                MessageBox.Show("Error inserting class: " + ex.Message);
             }
         }
 
-        private void fillbyIncludeNamesToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.classesTableAdapter.FillbyIncludeNames(this.f25_285ADataSet.Classes);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
+        //private void fillbyIncludeNamesToolStripButton_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        this.classesTableAdapter.FillbyIncludeNames(this.f25_285ADataSet.Classes);
+        //    }
+        //    catch (System.Exception ex)
+        //    {
+        //        System.Windows.Forms.MessageBox.Show(ex.Message);
+        //    }
 
-        }
+        //}
     }
 }

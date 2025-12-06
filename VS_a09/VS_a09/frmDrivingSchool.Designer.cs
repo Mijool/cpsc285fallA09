@@ -46,13 +46,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDrivingSchool));
             this.tabControl_DONotEDIT = new System.Windows.Forms.TabControl();
             this.tabClients = new System.Windows.Forms.TabPage();
+            this.label7 = new System.Windows.Forms.Label();
             this.cNameComboBox1 = new System.Windows.Forms.ComboBox();
             this.clientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.f25_285ADataSet = new VS_a09.F25_285ADataSet();
             this.btnAddClient = new System.Windows.Forms.Button();
             this.btnScheduleClass = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.rdoMonthClients = new System.Windows.Forms.RadioButton();
             this.rdoWeekClients = new System.Windows.Forms.RadioButton();
             this.rdoTodayClients = new System.Windows.Forms.RadioButton();
@@ -70,16 +70,16 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.clientsBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.classesDataGridView = new System.Windows.Forms.DataGridView();
-            this.classesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientIDTextBox = new System.Windows.Forms.TextBox();
             this.ageTextBox = new System.Windows.Forms.TextBox();
             this.genderTextBox = new System.Windows.Forms.TextBox();
             this.tabInstructors = new System.Windows.Forms.TabPage();
+            this.label8 = new System.Windows.Forms.Label();
             this.sNameComboBox1 = new System.Windows.Forms.ComboBox();
             this.staffBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnScheduleClass_1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.rdoAllInstructors = new System.Windows.Forms.RadioButton();
             this.rdoMonthInstructors = new System.Windows.Forms.RadioButton();
             this.rdoWeekInstructors = new System.Windows.Forms.RadioButton();
             this.rdoTodayInstructors = new System.Windows.Forms.RadioButton();
@@ -96,7 +96,6 @@
             this.bindingNavigatorMoveLastItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.classesDataGridView1 = new System.Windows.Forms.DataGridView();
-            this.classesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.staffIDTextBox = new System.Windows.Forms.TextBox();
             this.sTypeTextBox = new System.Windows.Forms.TextBox();
             this.phoneTextBox = new System.Windows.Forms.TextBox();
@@ -118,13 +117,16 @@
             this.sNameComboBox = new System.Windows.Forms.ComboBox();
             this.sTypeTextBox1 = new System.Windows.Forms.TextBox();
             this.phoneTextBox1 = new System.Windows.Forms.TextBox();
+            this.classesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.classesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.clientsTableAdapter = new VS_a09.F25_285ADataSetTableAdapters.ClientsTableAdapter();
             this.tableAdapterManager = new VS_a09.F25_285ADataSetTableAdapters.TableAdapterManager();
             this.classesTableAdapter = new VS_a09.F25_285ADataSetTableAdapters.ClassesTableAdapter();
             this.staffTableAdapter = new VS_a09.F25_285ADataSetTableAdapters.StaffTableAdapter();
             this.fKClassesClientBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             clientIDLabel = new System.Windows.Forms.Label();
             ageLabel = new System.Windows.Forms.Label();
             genderLabel = new System.Windows.Forms.Label();
@@ -147,16 +149,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.clientsBindingNavigator)).BeginInit();
             this.clientsBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.classesDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.classesBindingSource)).BeginInit();
             this.tabInstructors.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.classesDataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.classesBindingSource1)).BeginInit();
             this.tabAddClients.SuspendLayout();
             this.tabScheduleClass.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.classesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classesBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKClassesClientBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -327,6 +329,15 @@
             this.tabClients.Text = "Clients";
             this.tabClients.UseVisualStyleBackColor = true;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(29, 45);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(165, 16);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Now showing schedule for:";
+            // 
             // cNameComboBox1
             // 
             this.cNameComboBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientsBindingSource, "CName", true));
@@ -376,7 +387,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.radioButton1);
             this.groupBox1.Controls.Add(this.rdoMonthClients);
             this.groupBox1.Controls.Add(this.rdoWeekClients);
             this.groupBox1.Controls.Add(this.rdoTodayClients);
@@ -384,19 +395,10 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(291, 160);
+            this.groupBox1.Size = new System.Drawing.Size(291, 186);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(219, 16);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "View Client\'s classes scheduled for:";
+            this.groupBox1.Text = "View Client\'s classes scheduled for:";
             // 
             // rdoMonthClients
             // 
@@ -408,7 +410,7 @@
             this.rdoMonthClients.TabIndex = 2;
             this.rdoMonthClients.Text = "This Month";
             this.rdoMonthClients.UseVisualStyleBackColor = true;
-            this.rdoMonthClients.CheckedChanged += new System.EventHandler(this.timeframeRadioButtonUpdateGridHandler);
+            this.rdoMonthClients.CheckedChanged += new System.EventHandler(this.timeframeClientRadioButtonUpdateGridHandler);
             // 
             // rdoWeekClients
             // 
@@ -420,7 +422,7 @@
             this.rdoWeekClients.TabIndex = 1;
             this.rdoWeekClients.Text = "This Week";
             this.rdoWeekClients.UseVisualStyleBackColor = true;
-            this.rdoWeekClients.CheckedChanged += new System.EventHandler(this.timeframeRadioButtonUpdateGridHandler);
+            this.rdoWeekClients.CheckedChanged += new System.EventHandler(this.timeframeClientRadioButtonUpdateGridHandler);
             // 
             // rdoTodayClients
             // 
@@ -432,7 +434,7 @@
             this.rdoTodayClients.TabIndex = 0;
             this.rdoTodayClients.Text = "Today";
             this.rdoTodayClients.UseVisualStyleBackColor = true;
-            this.rdoTodayClients.CheckedChanged += new System.EventHandler(this.timeframeRadioButtonUpdateGridHandler);
+            this.rdoTodayClients.CheckedChanged += new System.EventHandler(this.timeframeClientRadioButtonUpdateGridHandler);
             // 
             // clientsBindingNavigator
             // 
@@ -574,11 +576,6 @@
             this.classesDataGridView.Size = new System.Drawing.Size(856, 315);
             this.classesDataGridView.TabIndex = 8;
             // 
-            // classesBindingSource
-            // 
-            this.classesBindingSource.DataMember = "FK_Classes_Client";
-            this.classesBindingSource.DataSource = this.clientsBindingSource;
-            // 
             // clientIDTextBox
             // 
             this.clientIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientsBindingSource, "ClientID", true));
@@ -635,6 +632,15 @@
             this.tabInstructors.Text = "Instructors";
             this.tabInstructors.UseVisualStyleBackColor = true;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(29, 45);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(165, 16);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Now showing schedule for:";
+            // 
             // sNameComboBox1
             // 
             this.sNameComboBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.staffBindingSource, "SName", true));
@@ -667,7 +673,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.rdoAllInstructors);
             this.groupBox2.Controls.Add(this.rdoMonthInstructors);
             this.groupBox2.Controls.Add(this.rdoWeekInstructors);
             this.groupBox2.Controls.Add(this.rdoTodayInstructors);
@@ -675,19 +681,23 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(291, 160);
+            this.groupBox2.Size = new System.Drawing.Size(291, 197);
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.groupBox2.Text = "View Instructors\' classes scheduled for:";
             // 
-            // label2
+            // rdoAllInstructors
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(239, 16);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "View Instructors\' classes scheduled for:";
+            this.rdoAllInstructors.AutoSize = true;
+            this.rdoAllInstructors.Location = new System.Drawing.Point(81, 158);
+            this.rdoAllInstructors.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rdoAllInstructors.Name = "rdoAllInstructors";
+            this.rdoAllInstructors.Size = new System.Drawing.Size(77, 20);
+            this.rdoAllInstructors.TabIndex = 4;
+            this.rdoAllInstructors.Text = "All Time";
+            this.rdoAllInstructors.UseVisualStyleBackColor = true;
+            this.rdoAllInstructors.CheckedChanged += new System.EventHandler(this.timeframeInstructorRadioButtonUpdateGridHandler);
+            this.rdoAllInstructors.Click += new System.EventHandler(this.timeframeInstructorRadioButtonUpdateGridHandler);
             // 
             // rdoMonthInstructors
             // 
@@ -699,8 +709,8 @@
             this.rdoMonthInstructors.TabIndex = 2;
             this.rdoMonthInstructors.Text = "This Month";
             this.rdoMonthInstructors.UseVisualStyleBackColor = true;
-            this.rdoMonthInstructors.CheckedChanged += new System.EventHandler(this.rdoMonthInstructors_CheckedChanged);
-            this.rdoMonthInstructors.Click += new System.EventHandler(this.timeframeRadioButtonUpdateGridHandler);
+            this.rdoMonthInstructors.CheckedChanged += new System.EventHandler(this.timeframeInstructorRadioButtonUpdateGridHandler);
+            this.rdoMonthInstructors.Click += new System.EventHandler(this.timeframeInstructorRadioButtonUpdateGridHandler);
             // 
             // rdoWeekInstructors
             // 
@@ -712,7 +722,8 @@
             this.rdoWeekInstructors.TabIndex = 1;
             this.rdoWeekInstructors.Text = "This Week";
             this.rdoWeekInstructors.UseVisualStyleBackColor = true;
-            this.rdoWeekInstructors.Click += new System.EventHandler(this.timeframeRadioButtonUpdateGridHandler);
+            this.rdoWeekInstructors.CheckedChanged += new System.EventHandler(this.timeframeInstructorRadioButtonUpdateGridHandler);
+            this.rdoWeekInstructors.Click += new System.EventHandler(this.timeframeInstructorRadioButtonUpdateGridHandler);
             // 
             // rdoTodayInstructors
             // 
@@ -724,6 +735,8 @@
             this.rdoTodayInstructors.TabIndex = 0;
             this.rdoTodayInstructors.Text = "Today";
             this.rdoTodayInstructors.UseVisualStyleBackColor = true;
+            this.rdoTodayInstructors.CheckedChanged += new System.EventHandler(this.timeframeInstructorRadioButtonUpdateGridHandler);
+            this.rdoTodayInstructors.Click += new System.EventHandler(this.timeframeInstructorRadioButtonUpdateGridHandler);
             // 
             // bindingNavigator1
             // 
@@ -855,11 +868,6 @@
             this.classesDataGridView1.Size = new System.Drawing.Size(856, 315);
             this.classesDataGridView1.TabIndex = 8;
             // 
-            // classesBindingSource1
-            // 
-            this.classesBindingSource1.DataMember = "FK_Classes_Staff";
-            this.classesBindingSource1.DataSource = this.staffBindingSource;
-            // 
             // staffIDTextBox
             // 
             this.staffIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.staffBindingSource, "StaffID", true));
@@ -878,7 +886,7 @@
             this.sTypeTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sTypeTextBox.Name = "sTypeTextBox";
             this.sTypeTextBox.ReadOnly = true;
-            this.sTypeTextBox.Size = new System.Drawing.Size(100, 22);
+            this.sTypeTextBox.Size = new System.Drawing.Size(160, 22);
             this.sTypeTextBox.TabIndex = 5;
             // 
             // phoneTextBox
@@ -998,6 +1006,8 @@
             // 
             // tabScheduleClass
             // 
+            this.tabScheduleClass.Controls.Add(this.comboBox1);
+            this.tabScheduleClass.Controls.Add(this.dateTimePicker1);
             this.tabScheduleClass.Controls.Add(this.btnInsertScheduledClass);
             this.tabScheduleClass.Controls.Add(cNameLabel1);
             this.tabScheduleClass.Controls.Add(this.cNameComboBox);
@@ -1022,7 +1032,7 @@
             // 
             // btnInsertScheduledClass
             // 
-            this.btnInsertScheduledClass.Location = new System.Drawing.Point(415, 156);
+            this.btnInsertScheduledClass.Location = new System.Drawing.Point(424, 159);
             this.btnInsertScheduledClass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnInsertScheduledClass.Name = "btnInsertScheduledClass";
             this.btnInsertScheduledClass.Size = new System.Drawing.Size(139, 80);
@@ -1095,6 +1105,16 @@
             this.phoneTextBox1.Size = new System.Drawing.Size(121, 22);
             this.phoneTextBox1.TabIndex = 7;
             // 
+            // classesBindingSource
+            // 
+            this.classesBindingSource.DataMember = "FK_Classes_Client";
+            this.classesBindingSource.DataSource = this.clientsBindingSource;
+            // 
+            // classesBindingSource1
+            // 
+            this.classesBindingSource1.DataMember = "FK_Classes_Staff";
+            this.classesBindingSource1.DataSource = this.staffBindingSource;
+            // 
             // clientsTableAdapter
             // 
             this.clientsTableAdapter.ClearBeforeFill = true;
@@ -1120,23 +1140,32 @@
             this.fKClassesClientBindingSource.DataMember = "FK_Classes_Client";
             this.fKClassesClientBindingSource.DataSource = this.clientsBindingSource;
             // 
-            // label7
+            // radioButton1
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(29, 45);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(165, 16);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Now showing schedule for:";
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(81, 159);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(77, 20);
+            this.radioButton1.TabIndex = 5;
+            this.radioButton1.Text = "All Time";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.timeframeClientRadioButtonUpdateGridHandler);
             // 
-            // label8
+            // dateTimePicker1
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(29, 45);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(165, 16);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "Now showing schedule for:";
+            this.dateTimePicker1.Location = new System.Drawing.Point(260, 84);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(249, 22);
+            this.dateTimePicker1.TabIndex = 17;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(585, 82);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 24);
+            this.comboBox1.TabIndex = 18;
             // 
             // frmDrivingSchool
             // 
@@ -1159,7 +1188,6 @@
             this.clientsBindingNavigator.ResumeLayout(false);
             this.clientsBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.classesDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.classesBindingSource)).EndInit();
             this.tabInstructors.ResumeLayout(false);
             this.tabInstructors.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).EndInit();
@@ -1169,11 +1197,12 @@
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.classesDataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.classesBindingSource1)).EndInit();
             this.tabAddClients.ResumeLayout(false);
             this.tabAddClients.PerformLayout();
             this.tabScheduleClass.ResumeLayout(false);
             this.tabScheduleClass.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.classesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classesBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKClassesClientBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -1232,11 +1261,9 @@
         private System.Windows.Forms.RadioButton rdoMonthClients;
         private System.Windows.Forms.RadioButton rdoWeekClients;
         private System.Windows.Forms.RadioButton rdoTodayClients;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnScheduleClass;
         private System.Windows.Forms.Button btnScheduleClass_1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RadioButton rdoMonthInstructors;
         private System.Windows.Forms.RadioButton rdoWeekInstructors;
         private System.Windows.Forms.RadioButton rdoTodayInstructors;
@@ -1262,6 +1289,10 @@
         private System.Windows.Forms.BindingSource fKClassesClientBindingSource;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.RadioButton rdoAllInstructors;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 
