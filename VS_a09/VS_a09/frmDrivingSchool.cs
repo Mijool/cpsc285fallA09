@@ -20,42 +20,16 @@ namespace VS_a09
             InitializeComponent();
         }
 
-        private void classesBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.classesBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.f25_285ADataSet);
-
-        }
-
-        private void clientsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.clientsBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.f25_285ADataSet);
-
-        }
-
-
-
-        
-
-        private SqlConnection cnnF25_285;
-        private SqlCommand cmdF25_285;
-
-
         //change this in App.config as well
         //private String connectionStr = @"Data Source=cissql;Initial Catalog=F25_285A;Integrated Security=True"; //School DBO
         private String connectionStr = @"Data Source=MACK\MCSQL;Initial Catalog=F25_285A;Integrated Security=True"; //Miguel's DBO
+        private SqlConnection cnnF25_285; //generic insantiation of sql objects to be passed into methods
+        private SqlCommand cmdF25_285;
 
-
-
-        private void Form1_Load(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e) //Miguel
         {
-            
 
-
-            try
+            try //populates all tables and comboboxes
             {
                 this.staffTableAdapter.Fill(this.f25_285ADataSet.Staff);
                 this.clientsTableAdapter.Fill(this.f25_285ADataSet.Clients);
@@ -71,27 +45,29 @@ namespace VS_a09
                 cboPickClasstime.SelectedIndex = 0;
             }
             catch (Exception ex) {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Fatal error connecting to the database, check your connection string.\n\n"+ex.ToString());
             
             }
 
         }
 
-
+        //event handlers - miguel
         private void clientsTabUpdateDataGridHandler(object sender, EventArgs e) {
-            rdoMonthClients.Checked = true;
+            //everytime a clientID is changed, it refreshes the datagridview with a new where clause,
+            //this method also applies when adding a new client or scheduling a class and is sensitive to firing,
+            //eliminating a lot of direct calls to refresh
+            rdoMonthClients.Checked = true; //always sets timeframe to the next month when changing between clients
             try
-            {
+            {                                                                                  //gets staff/clientID to filter data  clients   the value of the selected radio button
                 dataGridViewAlter(cnnF25_285, cmdF25_285, classesDataGridView, connectionStr, Convert.ToInt16(clientIDTextBox.Text), 'c', rdoMonthClients.Text);
             }
             catch (FormatException) //prevents bug when adding clients
             {
                 return;
             }
+        }
 
-            }
-
-        private void instructorsTabUpdateDataGridHandler(object sender, EventArgs e)
+        private void instructorsTabUpdateDataGridHandler(object sender, EventArgs e) //similar to above, for the instructor tab though
         {
             rdoMonthInstructors.Checked = true;
             dataGridViewAlter(cnnF25_285, cmdF25_285, classesDataGridView1, connectionStr, Convert.ToInt16(staffIDTextBox.Text), 'i', rdoMonthInstructors.Text);
@@ -112,7 +88,7 @@ namespace VS_a09
 
 
         }
-        private void timeframeClientRadioButtonUpdateGridHandler(object sender, EventArgs e)
+        private void timeframeClientRadioButtonUpdateGridHandler(object sender, EventArgs e) //similar to above, for the instructor tab though
         {
             try
             {
@@ -121,19 +97,22 @@ namespace VS_a09
                 if (radioButton.Checked == false) { return; }//prevents from processing twice when a button gets unchecked and another gets checked
                 dataGridViewAlter(cnnF25_285, cmdF25_285, classesDataGridView, connectionStr, Convert.ToInt16(clientIDTextBox.Text), 'c', radioButton.Text);
             }
-            catch { return; }
+            catch (Exception ex) {
+                MessageBox.Show($"Issue sorting data, most likely with your connection to the database, check your connection string\n\n{ex.ToString()}");
+                
+                return; }
 
         }
 
+        //timeframe selector and id selector - Jimmy and Miguel
         private static void dataGridViewAlter(SqlConnection cnnView, SqlCommand cmdSelect, DataGridView formsDataGrid, String cnnStr, int idParam, char clientOrInstructor, String timeframe)
         {
-            cnnView = new SqlConnection(cnnStr);
-            cnnView.Open();
 
+            //creates needed variables
             DataTable dtSchedule = new DataTable();
             String WHEREclause = "";
 
-            switch (clientOrInstructor)
+            switch (clientOrInstructor)//depending whether the clients or instructors tab called this method, it isolates the selected ID
             {
                 case 'c':
                     WHEREclause = $"(Clients.ClientID = {idParam}) ";
@@ -143,49 +122,36 @@ namespace VS_a09
                     break;
             }
 
-            switch (timeframe)
+            switch (timeframe) //depending which radio button is selected, it adjusts the where clause to isolate the respective time frame
             {
                 case "Today":
-                    WHEREclause += " AND (Classes.CDate = GETDATE())";
-
+                    WHEREclause += " AND (Classes.CDate BETWEEN GETDATE() AND DATEADD(day, 1, GETDATE()))";
                     break;
                 case "This Week":
-
                     WHEREclause += " AND (Classes.CDate BETWEEN GETDATE() AND DATEADD(day, 6, GETDATE()))";
-
                     break;
                 case "This Month":
                     WHEREclause += " AND (Classes.CDate BETWEEN GETDATE() AND DATEADD(day, 29, GETDATE()))";
-
                     break;
-                case "All":
-
-                    break;
+                //if all radiobutton was selected, doesnt filter where clause and selects all rows
 
             }
-
-
-
+            //builds sql query with added where clause, that was decided above
             String sqlQuery = "SELECT Classes.CDate [Class Date], Classes.CTime [Class Time], Clients.CName [Client], Staff.SName [Staff] " +
                                  " FROM db_owner.Classes inner join db_owner.Clients on Clients.ClientID = Classes.ClientID inner join db_owner.Staff on Staff.StaffID = Classes.StaffID " +
                                  $" WHERE {WHEREclause}" +
-                                 $" ORDER BY Classes.CTime";
+                                 $" ORDER BY Classes.CDate, Classes.CTime";
+
+            cnnView = new SqlConnection(cnnStr);
+            cnnView.Open();
 
             cmdSelect = new SqlCommand(sqlQuery, cnnView);
 
-
-
-            dtSchedule.Load(cmdSelect.ExecuteReader());
+            dtSchedule.Load(cmdSelect.ExecuteReader()); //retrieves and loads select query into a dataTable
 
             cnnView.Close();
 
-            //dtSchedule.Columns["Class Time"].DataType = typeof(DateTime);
-
-            formsDataGrid.DataSource = dtSchedule;
-
-            //formsDataGrid.Columns["Class Time"].DefaultCellStyle.Format = "HH:mm";
-
-
+            formsDataGrid.DataSource = dtSchedule; //loads the formDatGrid with the data table above
 
         }
 
@@ -206,7 +172,7 @@ namespace VS_a09
         //Instructors Tab - should all use the same method
 
 
-        private void btnScheduleClass_1_Click(object sender, EventArgs e) //changes tabb
+        private void btnScheduleClass_1_Click(object sender, EventArgs e) //changes tab
         {
                     tabControl_DONotEDIT.SelectTab("tabScheduleClass");
         }
@@ -215,16 +181,16 @@ namespace VS_a09
         private void btnAddClientToDBO_Click(object sender, EventArgs e)
         {
             String lastName = txtLastName.Text.Trim();
-            String firstName = txtFirstName.Text.Trim();    //validation first
+            String firstName = txtFirstName.Text.Trim(); //stores the currently typed names
 
-            if (string.IsNullOrWhiteSpace(lastName) || string.IsNullOrWhiteSpace(firstName))
+            if (string.IsNullOrWhiteSpace(lastName) || string.IsNullOrWhiteSpace(firstName)) //checks if those txtboxes are empty
             {
                 MessageBox.Show("Please enter both first and last names.");
                 txtFirstName.Focus();
                 return;
             }
 
-            if (cboGender.SelectedItem == null)
+            if (cboGender.SelectedItem == null) //ensures gender is selected
             {
                 MessageBox.Show("Please select a gender.");
                 cboGender.Focus();
@@ -236,25 +202,25 @@ namespace VS_a09
                 txtAge.Focus();
                 return;
             }
-            String name = lastName + ", " + firstName;
+            String name = lastName + ", " + firstName; //builds full name in correct format
 
-            String gender = cboGender.SelectedItem.ToString().Substring(0, 1);
+            String gender = cboGender.SelectedItem.ToString().Substring(0, 1); //stores just the first letter of the gender (M,F,or O)
 
             try
             {
                 SqlConnection cnnF25_285 = new SqlConnection(connectionStr);
                 cnnF25_285.Open();
 
-                String sqlInsert =
-                $"INSERT INTO db_owner.Clients (CName, Age, Gender) " +
+                String sqlInsert = 
+                $"INSERT INTO db_owner.Clients (CName, Age, Gender) " + //builds insert query with the validated data above
                 $"VALUES ('{name}', {age}, '{gender}')";
 
                 SqlCommand cmdInsert = new SqlCommand(sqlInsert, cnnF25_285);
 
-                cmdInsert.ExecuteNonQuery();
+                cmdInsert.ExecuteNonQuery(); //executes
                 cnnF25_285.Close();
 
-                MessageBox.Show($"Successfully Added {firstName} {lastName}, {cboGender.SelectedItem.ToString()}, Age {age}");
+                MessageBox.Show($"Successfully Added {firstName} {lastName}, {cboGender.SelectedItem.ToString()}, Age {age}"); //confirmation screen
 
                 this.clientsTableAdapter.Fill(this.f25_285ADataSet.Clients); // Reload the Clients table so bindings / combo boxes see the new row
                 
@@ -280,7 +246,7 @@ namespace VS_a09
 
             try
             {
-
+                //ensures textBoxes are in correct format
                 if (!int.TryParse(cNameComboBox.SelectedValue?.ToString(), out int clientId))
                 {
                     MessageBox.Show("Client selection is invalid.");
@@ -300,15 +266,18 @@ namespace VS_a09
                     MessageBox.Show("Please select a valid class time.");
                     return;
                 }
+
+                //builds insert query
                 String strSqlClass =
                     "INSERT INTO db_owner.Classes (CDate, CTime, ClientID, StaffID) " +
-                    $"VALUES (CAST('{classDate}' as DATE), {classTime}, {clientId}, {staffId})";
-
+                    $"VALUES (CAST('{classDate.ToString("yyyy-MM-dd")}' as DATE), {classTime}, {clientId}, {staffId})";
+                //classdate gets formatted to drop the time at the end, prevents being able to make a class at the same time
+                //builds query to check if that class 
                 String strCheckExistence =
                      $"SELECT CDate, CTime, ClientID, StaffID " +
                     $" FROM db_owner.Classes " +
-                    $" WHERE (CDate = CAST('{classDate}' as DATE)) AND (CTime = {classTime}) AND (ClientID = {clientId}) AND (StaffID = {staffId})";
-
+                    $" WHERE (CDate = CAST('{classDate.ToString("yyyy-MM-dd")}' as DATE)) AND (CTime = {classTime}) AND (StaffID = {staffId})";
+                //checks if the instructor already has a class at that time
                 try
                 {
                     SqlConnection cnnF25_285 = new SqlConnection(connectionStr);
@@ -319,38 +288,64 @@ namespace VS_a09
                     if (checkExistence.ExecuteReader().HasRows)
                     {
                         cnnF25_285.Close();
-                        MessageBox.Show("These two already have a class schedule for this date and time!");
+                        MessageBox.Show("This instuctor already has a class scheduled for this date and time!");
                         return;
                     }
                     cnnF25_285.Close();
+
                     cnnF25_285.Open();
+                    //inserts new class if the check passes
                     SqlCommand cmdInsertClass = new SqlCommand(strSqlClass, cnnF25_285);
 
                     cmdInsertClass.ExecuteNonQuery();
 
                     cnnF25_285.Close();
 
+                    //confirmation screen
+                    MessageBox.Show($"Successfully scheduled a class between {sNameComboBox.Text} and {cNameComboBox.Text} at {classTime.ToString()} on {classDate.ToString()}" );
+
+                    staffBindingSource.Position = clientId - 1;
 
                     this.classesTableAdapter.Fill(this.f25_285ADataSet.Classes);
 
-                    MessageBox.Show($"Successfully scheduled a class between {sNameComboBox.Text} and {cNameComboBox.Text} at {classTime.ToString()} on {classDate.ToString()}" );
+                    rdoAllInstructors.Checked = true;
 
                     tabControl_DONotEDIT.SelectTab("tabInstructors");
+                    //these four lines reload data and redirect the user back to the instructors schedule
 
 
+                }
+                catch (ConstraintException ex) //prevents bug not loading data properly
+                {
+                    staffBindingSource.Position = clientId - 1;
+
+                    this.classesTableAdapter.Fill(this.f25_285ADataSet.Classes);
+
+                    rdoAllInstructors.Checked = true;
+
+                    tabControl_DONotEDIT.SelectTab("tabInstructors");
 
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Fatal Error Connecting to the Database\v\v" + ex.ToString());
+                    MessageBox.Show("Fatal Error Connecting to the Database\n\n" + ex.ToString());
                     return;
-
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error inserting class, make sure everthing is selected.\v\v" + ex.Message);
             }
+        }
+
+
+
+        private void clientsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.clientsBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.f25_285ADataSet);
+
         }
 
     }

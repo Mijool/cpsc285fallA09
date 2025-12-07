@@ -4,6 +4,9 @@
 
     partial class F25_285ADataSet
     {
+        partial class ClassesDataTable
+        {
+        }
     }
 }
 
