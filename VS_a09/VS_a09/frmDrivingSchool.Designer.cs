@@ -44,6 +44,8 @@
             System.Windows.Forms.Label sNameLabel;
             System.Windows.Forms.Label cNameLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDrivingSchool));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.Label clientIDLabel1;
             System.Windows.Forms.Label staffIDLabel1;
             this.tabControl_DONotEDIT = new System.Windows.Forms.TabControl();
@@ -355,7 +357,7 @@
             this.cNameComboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.cNameComboBox1.Name = "cNameComboBox1";
             this.cNameComboBox1.Size = new System.Drawing.Size(160, 24);
-            this.cNameComboBox1.TabIndex = 12;
+            this.cNameComboBox1.TabIndex = 0;
             this.cNameComboBox1.TabStop = false;
             this.cNameComboBox1.ValueMember = "CName";
             // 
@@ -375,7 +377,7 @@
             this.btnAddClient.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddClient.Name = "btnAddClient";
             this.btnAddClient.Size = new System.Drawing.Size(111, 43);
-            this.btnAddClient.TabIndex = 11;
+            this.btnAddClient.TabIndex = 1;
             this.btnAddClient.Text = "Add a new Client";
             this.btnAddClient.UseVisualStyleBackColor = true;
             this.btnAddClient.Click += new System.EventHandler(this.btnAddClient_Click);
@@ -386,7 +388,7 @@
             this.btnScheduleClass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnScheduleClass.Name = "btnScheduleClass";
             this.btnScheduleClass.Size = new System.Drawing.Size(111, 52);
-            this.btnScheduleClass.TabIndex = 10;
+            this.btnScheduleClass.TabIndex = 3;
             this.btnScheduleClass.Text = "Schedule Class";
             this.btnScheduleClass.UseVisualStyleBackColor = true;
             this.btnScheduleClass.Click += new System.EventHandler(this.btnScheduleClass_Click);
@@ -572,6 +574,8 @@
             // 
             this.classesDataGridView.AllowUserToAddRows = false;
             this.classesDataGridView.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.Silver;
+            this.classesDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
             this.classesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.classesDataGridView.Location = new System.Drawing.Point(45, 240);
             this.classesDataGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -658,7 +662,7 @@
             this.sNameComboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.sNameComboBox1.Name = "sNameComboBox1";
             this.sNameComboBox1.Size = new System.Drawing.Size(160, 24);
-            this.sNameComboBox1.TabIndex = 13;
+            this.sNameComboBox1.TabIndex = 0;
             this.sNameComboBox1.ValueMember = "SName";
             // 
             // staffBindingSource
@@ -672,7 +676,7 @@
             this.btnScheduleClass_1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnScheduleClass_1.Name = "btnScheduleClass_1";
             this.btnScheduleClass_1.Size = new System.Drawing.Size(111, 55);
-            this.btnScheduleClass_1.TabIndex = 12;
+            this.btnScheduleClass_1.TabIndex = 1;
             this.btnScheduleClass_1.Text = "Schedule Class";
             this.btnScheduleClass_1.UseVisualStyleBackColor = true;
             this.btnScheduleClass_1.Click += new System.EventHandler(this.btnScheduleClass_1_Click);
@@ -699,7 +703,7 @@
             this.rdoAllInstructors.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdoAllInstructors.Name = "rdoAllInstructors";
             this.rdoAllInstructors.Size = new System.Drawing.Size(77, 20);
-            this.rdoAllInstructors.TabIndex = 4;
+            this.rdoAllInstructors.TabIndex = 3;
             this.rdoAllInstructors.Text = "All Time";
             this.rdoAllInstructors.UseVisualStyleBackColor = true;
             this.rdoAllInstructors.CheckedChanged += new System.EventHandler(this.timeframeInstructorRadioButtonUpdateGridHandler);
@@ -864,6 +868,8 @@
             // 
             this.classesDataGridView1.AllowUserToAddRows = false;
             this.classesDataGridView1.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.Silver;
+            this.classesDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle18;
             this.classesDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.classesDataGridView1.Location = new System.Drawing.Point(45, 240);
             this.classesDataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -967,7 +973,7 @@
             this.txtLastName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(151, 22);
-            this.txtLastName.TabIndex = 4;
+            this.txtLastName.TabIndex = 1;
             // 
             // cboGender
             // 
@@ -997,7 +1003,7 @@
             this.txtFirstName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(151, 22);
-            this.txtFirstName.TabIndex = 1;
+            this.txtFirstName.TabIndex = 0;
             // 
             // btnAddClientToDBO
             // 
@@ -1005,7 +1011,7 @@
             this.btnAddClientToDBO.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddClientToDBO.Name = "btnAddClientToDBO";
             this.btnAddClientToDBO.Size = new System.Drawing.Size(115, 46);
-            this.btnAddClientToDBO.TabIndex = 0;
+            this.btnAddClientToDBO.TabIndex = 4;
             this.btnAddClientToDBO.Text = "Add Client";
             this.btnAddClientToDBO.UseVisualStyleBackColor = true;
             this.btnAddClientToDBO.Click += new System.EventHandler(this.btnAddClientToDBO_Click);
@@ -1046,7 +1052,7 @@
             this.btnInsertScheduledClass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnInsertScheduledClass.Name = "btnInsertScheduledClass";
             this.btnInsertScheduledClass.Size = new System.Drawing.Size(139, 80);
-            this.btnInsertScheduledClass.TabIndex = 16;
+            this.btnInsertScheduledClass.TabIndex = 4;
             this.btnInsertScheduledClass.Text = "Schedule this class";
             this.btnInsertScheduledClass.UseVisualStyleBackColor = true;
             this.btnInsertScheduledClass.Click += new System.EventHandler(this.btnInsertScheduledClass_Click);
@@ -1056,13 +1062,12 @@
             this.cNameComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientsBindingSource, "CName", true));
             this.cNameComboBox.DataSource = this.clientsBindingSource;
             this.cNameComboBox.DisplayMember = "CName";
-            this.cNameComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cNameComboBox.FormattingEnabled = true;
             this.cNameComboBox.Location = new System.Drawing.Point(701, 101);
             this.cNameComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cNameComboBox.Name = "cNameComboBox";
-            this.cNameComboBox.Size = new System.Drawing.Size(121, 24);
-            this.cNameComboBox.TabIndex = 11;
+            this.cNameComboBox.Size = new System.Drawing.Size(186, 24);
+            this.cNameComboBox.TabIndex = 1;
             this.cNameComboBox.ValueMember = "ClientID";
             // 
             // ageTextBox1
@@ -1090,14 +1095,13 @@
             this.sNameComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.staffBindingSource, "SName", true));
             this.sNameComboBox.DataSource = this.staffBindingSource;
             this.sNameComboBox.DisplayMember = "SName";
-            this.sNameComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.sNameComboBox.FormattingEnabled = true;
             this.sNameComboBox.Location = new System.Drawing.Point(231, 98);
             this.sNameComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sNameComboBox.Name = "sNameComboBox";
-            this.sNameComboBox.Size = new System.Drawing.Size(121, 24);
-            this.sNameComboBox.TabIndex = 3;
-            this.sNameComboBox.ValueMember = "SName";
+            this.sNameComboBox.Size = new System.Drawing.Size(151, 24);
+            this.sNameComboBox.TabIndex = 0;
+            this.sNameComboBox.ValueMember = "StaffID";
             // 
             // sTypeTextBox1
             // 
@@ -1106,7 +1110,7 @@
             this.sTypeTextBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sTypeTextBox1.Name = "sTypeTextBox1";
             this.sTypeTextBox1.ReadOnly = true;
-            this.sTypeTextBox1.Size = new System.Drawing.Size(121, 22);
+            this.sTypeTextBox1.Size = new System.Drawing.Size(151, 22);
             this.sTypeTextBox1.TabIndex = 5;
             // 
             // phoneTextBox1
@@ -1161,7 +1165,7 @@
             this.radioButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(77, 20);
-            this.radioButton1.TabIndex = 5;
+            this.radioButton1.TabIndex = 3;
             this.radioButton1.Text = "All Time";
             this.radioButton1.UseVisualStyleBackColor = true;
             this.radioButton1.CheckedChanged += new System.EventHandler(this.timeframeClientRadioButtonUpdateGridHandler);
@@ -1171,15 +1175,16 @@
             this.scheduleDatePicker.Location = new System.Drawing.Point(252, 248);
             this.scheduleDatePicker.Name = "scheduleDatePicker";
             this.scheduleDatePicker.Size = new System.Drawing.Size(249, 22);
-            this.scheduleDatePicker.TabIndex = 17;
+            this.scheduleDatePicker.TabIndex = 2;
             // 
             // cboPickClasstime
             // 
+            this.cboPickClasstime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPickClasstime.FormattingEnabled = true;
             this.cboPickClasstime.Location = new System.Drawing.Point(574, 247);
             this.cboPickClasstime.Name = "cboPickClasstime";
             this.cboPickClasstime.Size = new System.Drawing.Size(121, 24);
-            this.cboPickClasstime.TabIndex = 18;
+            this.cboPickClasstime.TabIndex = 3;
             // 
             // clientIDLabel1
             // 
@@ -1196,7 +1201,7 @@
             this.clientIDTextBox1.Location = new System.Drawing.Point(700, 67);
             this.clientIDTextBox1.Name = "clientIDTextBox1";
             this.clientIDTextBox1.ReadOnly = true;
-            this.clientIDTextBox1.Size = new System.Drawing.Size(122, 22);
+            this.clientIDTextBox1.Size = new System.Drawing.Size(71, 22);
             this.clientIDTextBox1.TabIndex = 19;
             // 
             // staffIDLabel1
@@ -1214,7 +1219,7 @@
             this.staffIDTextBox1.Location = new System.Drawing.Point(231, 64);
             this.staffIDTextBox1.Name = "staffIDTextBox1";
             this.staffIDTextBox1.ReadOnly = true;
-            this.staffIDTextBox1.Size = new System.Drawing.Size(121, 22);
+            this.staffIDTextBox1.Size = new System.Drawing.Size(71, 22);
             this.staffIDTextBox1.TabIndex = 20;
             // 
             // frmDrivingSchool
