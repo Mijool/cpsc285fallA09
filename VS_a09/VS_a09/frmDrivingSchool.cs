@@ -261,6 +261,12 @@ namespace VS_a09
 
                 DateTime classDate = scheduleDatePicker.Value;
 
+                if (classDate == null || classDate < DateTime.Now) //ensures class date isnt set in the past
+                {
+                    MessageBox.Show("Please select a valid class date.");
+                    return;
+                }
+
                 if (!int.TryParse(cboPickClasstime.SelectedItem?.ToString().Trim(), out int classTime))
                 {
                     MessageBox.Show("Please select a valid class time.");
@@ -276,8 +282,8 @@ namespace VS_a09
                 String strCheckExistence =
                      $"SELECT CDate, CTime, ClientID, StaffID " +
                     $" FROM db_owner.Classes " +
-                    $" WHERE (CDate = CAST('{classDate.ToString("yyyy-MM-dd")}' as DATE)) AND (CTime = {classTime}) AND (StaffID = {staffId})";
-                //checks if the instructor already has a class at that time
+                    $" WHERE (CDate = CAST('{classDate.ToString("yyyy-MM-dd")}' as DATE)) AND (CTime = {classTime}) AND (StaffID = {staffId} OR ClientID = {clientId})";
+                //checks if the instructor or client already has a class at that time
                 try
                 {
                     SqlConnection cnnF25_285 = new SqlConnection(connectionStr);
@@ -288,7 +294,7 @@ namespace VS_a09
                     if (checkExistence.ExecuteReader().HasRows)
                     {
                         cnnF25_285.Close();
-                        MessageBox.Show("This instuctor already has a class scheduled for this date and time!");
+                        MessageBox.Show("This instuctor or client already has a class scheduled for this date and time!");
                         return;
                     }
                     cnnF25_285.Close();
