@@ -46,8 +46,8 @@
             System.Windows.Forms.Label clientIDLabel1;
             System.Windows.Forms.Label staffIDLabel1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDrivingSchool));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl_DONotEDIT = new System.Windows.Forms.TabControl();
             this.tabClients = new System.Windows.Forms.TabPage();
             this.label7 = new System.Windows.Forms.Label();
@@ -371,7 +371,6 @@
             this.cNameComboBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientsBindingSource, "CName", true));
             this.cNameComboBox1.DataSource = this.clientsBindingSource;
             this.cNameComboBox1.DisplayMember = "CName";
-            this.cNameComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cNameComboBox1.FormattingEnabled = true;
             this.cNameComboBox1.Location = new System.Drawing.Point(96, 113);
             this.cNameComboBox1.Margin = new System.Windows.Forms.Padding(4);
@@ -606,8 +605,8 @@
             // 
             this.classesDataGridView.AllowUserToAddRows = false;
             this.classesDataGridView.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
-            this.classesDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Silver;
+            this.classesDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
             this.classesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.classesDataGridView.Location = new System.Drawing.Point(29, 238);
             this.classesDataGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -688,7 +687,6 @@
             this.sNameComboBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.staffBindingSource, "SName", true));
             this.sNameComboBox1.DataSource = this.staffBindingSource;
             this.sNameComboBox1.DisplayMember = "SName";
-            this.sNameComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.sNameComboBox1.FormattingEnabled = true;
             this.sNameComboBox1.Location = new System.Drawing.Point(95, 113);
             this.sNameComboBox1.Margin = new System.Windows.Forms.Padding(4);
@@ -900,8 +898,8 @@
             // 
             this.classesDataGridView1.AllowUserToAddRows = false;
             this.classesDataGridView1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Silver;
-            this.classesDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.Silver;
+            this.classesDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle12;
             this.classesDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.classesDataGridView1.Location = new System.Drawing.Point(27, 240);
             this.classesDataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1134,7 +1132,7 @@
             this.cNameComboBox.Name = "cNameComboBox";
             this.cNameComboBox.Size = new System.Drawing.Size(177, 24);
             this.cNameComboBox.TabIndex = 1;
-            this.cNameComboBox.ValueMember = "ClientID";
+            this.cNameComboBox.ValueMember = "CName";
             // 
             // ageTextBox1
             // 
@@ -1167,7 +1165,7 @@
             this.sNameComboBox.Name = "sNameComboBox";
             this.sNameComboBox.Size = new System.Drawing.Size(151, 24);
             this.sNameComboBox.TabIndex = 0;
-            this.sNameComboBox.ValueMember = "StaffID";
+            this.sNameComboBox.ValueMember = "SName";
             // 
             // sTypeTextBox1
             // 

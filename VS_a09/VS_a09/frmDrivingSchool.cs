@@ -43,6 +43,8 @@ namespace VS_a09
                 }
 
                 cboPickClasstime.SelectedIndex = 0;
+
+                
             }
             catch (Exception ex) {
                 MessageBox.Show("Fatal error connecting to the database, check your connection string.\n\n"+ex.ToString());
@@ -57,12 +59,17 @@ namespace VS_a09
             //this method also applies when adding a new client or scheduling a class and is sensitive to firing,
             //eliminating a lot of direct calls to refresh
             rdoMonthClients.Checked = true; //always sets timeframe to the next month when changing between clients
+
             try
             {                                                                                  //gets staff/clientID to filter data  clients   the value of the selected radio button
+
                 dataGridViewAlter(cnnF25_285, cmdF25_285, classesDataGridView, connectionStr, Convert.ToInt16(clientIDTextBox.Text), 'c', rdoMonthClients.Text);
+                clientsBindingSource.Position = Convert.ToInt16(clientIDTextBox.Text) - 1;
+
             }
             catch (FormatException) //prevents bug when adding clients
             {
+
                 return;
             }
         }
@@ -71,6 +78,7 @@ namespace VS_a09
         {
             rdoMonthInstructors.Checked = true;
             dataGridViewAlter(cnnF25_285, cmdF25_285, classesDataGridView1, connectionStr, Convert.ToInt16(staffIDTextBox.Text), 'i', rdoMonthInstructors.Text);
+            staffBindingSource.Position = Convert.ToInt16(staffIDTextBox.Text) - 1;
         }
 
         private void timeframeInstructorRadioButtonUpdateGridHandler(object sender, EventArgs e)
@@ -107,7 +115,7 @@ namespace VS_a09
         //timeframe selector and id selector - Jimmy and Miguel
         private static void dataGridViewAlter(SqlConnection cnnView, SqlCommand cmdSelect, DataGridView formsDataGrid, String cnnStr, int idParam, char clientOrInstructor, String timeframe)
         {
-
+            
             //creates needed variables
             DataTable dtSchedule = new DataTable();
             String WHEREclause = "";
@@ -247,13 +255,13 @@ namespace VS_a09
             try
             {
                 //ensures textBoxes are in correct format
-                if (!int.TryParse(cNameComboBox.SelectedValue?.ToString(), out int clientId))
+                if (!int.TryParse(staffIDTextBox1.Text, out int staffId))
                 {
                     MessageBox.Show("Client selection is invalid.");
                     return;
                 }
 
-                if (!int.TryParse(sNameComboBox.SelectedValue?.ToString(), out int staffId))
+                if (!int.TryParse(clientIDTextBox1.Text, out int clientId))
                 {
                     MessageBox.Show("Staff selection is invalid.");
                     return;
@@ -308,11 +316,14 @@ namespace VS_a09
                     cnnF25_285.Close();
 
                     //confirmation screen
-                    MessageBox.Show($"Successfully scheduled a class between {sNameComboBox.Text} and {cNameComboBox.Text} at {classTime.ToString()} on {classDate.ToString()}" );
+                    MessageBox.Show($"Successfully scheduled a class between {sNameComboBox.Text} and {cNameComboBox.Text} at {classTime} on {classDate.ToString("yyyy-MM-dd")}" );
 
-                    staffBindingSource.Position = clientId - 1;
+                    staffBindingSource.Position = staffId;
 
-                    this.classesTableAdapter.Fill(this.f25_285ADataSet.Classes);
+
+                    this.clientsTableAdapter.Fill(this.f25_285ADataSet.Clients);
+
+                    this.staffTableAdapter.Fill(this.f25_285ADataSet.Staff);
 
                     rdoAllInstructors.Checked = true;
 
@@ -325,7 +336,9 @@ namespace VS_a09
                 {
                     staffBindingSource.Position = clientId - 1;
 
-                    this.classesTableAdapter.Fill(this.f25_285ADataSet.Classes);
+                    this.clientsTableAdapter.Fill(this.f25_285ADataSet.Clients);
+
+                    this.staffTableAdapter.Fill(this.f25_285ADataSet.Staff);
 
                     rdoAllInstructors.Checked = true;
 
